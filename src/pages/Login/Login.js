@@ -9,13 +9,11 @@ import './login.scss';
 const Login = () => {
 
      const [credentials, setCredentials] = useState({
-         username: undefined,
+         email: undefined,
          password: undefined,
      });
 
      const { loading, error, dispatch } = useContext(AuthContext);
-
-     console.log(dispatch);
 
      const navigate = useNavigate();
 
@@ -32,7 +30,11 @@ const Login = () => {
          try {
              const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
              dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-             navigate("/");
+
+             if(res?.data?.details?.email){
+                navigate("/");
+             }
+             
          } catch (err) {
              dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
          }
@@ -53,8 +55,8 @@ const Login = () => {
                                       <form onSubmit={handleSubmit}>
                                           <div className="form-field-area ff-playfair">
                                               <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
-                                                  <input type="text" id="username" className="fw-semiBold" required onChange={handleChange} />
-                                                  <label for="email"> User Name </label>
+                                                  <input type="email" id="email" className="fw-semiBold" required onChange={handleChange} />
+                                                  <label for="email"> Email </label>
                                                   <line></line>
                                               </div>
 
@@ -90,7 +92,9 @@ const Login = () => {
                                           >
                                               Login
                                           </button>
-                                          {error && <span>{error.message}</span>}
+
+                                          {error && <span className='text-danger mt-3 d-inline-block'>{error.message}</span>}
+
                                       </form>
 
                                       <p className="ff-inter text-clr-dark-3 fs-14 lh-22 mt-4">

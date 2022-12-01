@@ -1,10 +1,12 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/Header/Header'
+import './App.css';
+import Footer from "./components/Footer/Footer";
+import Header from './components/Header/Header';
 import HomePage from "./pages/home/HomePage";
 import Login from "./pages/Login/Login";
+import MyItems from './pages/myItems/MyItems';
 import Registration from "./pages/Registration/Registration";
-import Footer from "./components/Footer/Footer";
+import PublicRoute from './utils/PublicRoute';
 
 
 
@@ -15,8 +17,23 @@ function App() {
           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Registration />} />
+              <Route
+                  path="/login"
+                  element={
+                      <PublicRoute>
+                          <Login />
+                      </PublicRoute>
+                  }
+              />
+              <Route
+                  path="/signup"
+                  element={
+                      <PublicRoute>
+                          <Registration />
+                      </PublicRoute>
+                  }
+              />
+              <Route path="/myitems" element={<MyItems />} />
               <Route path="*" element={<div>Page not found 404</div>} />
           </Routes>
           <Footer />
