@@ -32,6 +32,9 @@ body {
     --egyptian-green-light: #edfaf8;
     --yellow: #fde90a;
     --yellow-light: #f3f2de;
+    --lemon-yellow: #ebe49b;
+    --sky-blue: #b0ddff;
+
     --dark-1: #1a2227;
     --dark-2: #4d585f;
     --dark-3: #69747b;
@@ -63,7 +66,6 @@ body {
     padding: 36px;
 }
 
-
 .text-clr-dark-1 {
     color: var(--dark-1);
 }
@@ -83,6 +85,15 @@ body {
     color: var(--egyptian-green);
 }
 
+
+
+.bg-sky-blue{
+    background-color: var(--sky-blue);
+}
+
+.bg-lemon-yellow {
+    background-color: var(--lemon-yellow);
+}
 
 .bg-green {
     background-color: var(--egyptian-green);
@@ -108,16 +119,12 @@ body {
     background-color: var(--gray-3);
 }
 
-
 .bg-columbia-blue {
     background-color: var(--columbia-blue);
 }
 .bg-pale-goldenrod {
     background-color: var(--pale-goldenrod);
 }
-
-
-
 
 .ltr-spacing-07 {
     letter-spacing: 0.07em;
@@ -131,7 +138,7 @@ body {
 }
 
 .hover-color {
-    transition: all .2s linear;
+    transition: all 0.2s linear;
 
     &:hover {
         color: var(--dark-1);
@@ -139,10 +146,6 @@ body {
 }
 
 /* / common cls ashike vai  */
-
-
-
-
 
 /* helper , base classes */
 .container {
