@@ -1,0 +1,16 @@
+.form-modal{
+    .modal-dialog {
+        min-width: 80% !important;
+        .modal-content {
+            padding: 48px;
+            border: none;
+            border-radius: 0;
+
+            .close-btn {
+                position: absolute;
+                top: -25px;
+                right: -25px;
+            }
+        }
+    }
+}
