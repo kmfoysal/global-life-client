@@ -8,7 +8,7 @@ const MyItemsTab = () => {
     return (
         <section className="myItemTab section-padding-72">
             <Container>
-                <Row>
+                {/* <Row> */}
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Row>
                             <Col sm={3}>
@@ -100,7 +100,7 @@ const MyItemsTab = () => {
                             </Col>
                         </Row>
                     </Tab.Container>
-                </Row>
+                {/* </Row> */}
             </Container>
         </section>
     );

@@ -85,9 +85,7 @@ body {
     color: var(--egyptian-green);
 }
 
-
-
-.bg-sky-blue{
+.bg-sky-blue {
     background-color: var(--sky-blue);
 }
 
@@ -128,6 +126,10 @@ body {
 
 .ltr-spacing-07 {
     letter-spacing: 0.07em;
+}
+
+.ltr-spacing-0 {
+    letter-spacing: 0;
 }
 
 .section-padding-36 {
@@ -343,3 +345,53 @@ body {
 }
 
 /* helper , base classes  - END*/
+
+.category-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    background: #1a2227;
+    color: #fff;
+    font-family: inter;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+}
+
+
+.minimalBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #4d585f;
+    padding: 12px 26px;
+    border: 1px solid #969ea3;
+    background-color: transparent;
+    font-family: inter;
+    gap:5px
+}
+
+.fillBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 12px 26px;
+    border: 1px solid #0A8270;
+    background-color: #0A8270;
+    font-family: inter; 
+    gap: 5px;
+}

@@ -1,6 +1,6 @@
 .form-modal {
     .modal-dialog {
-        min-width: 80% !important;
+        max-width: 80% !important;
         .modal-content {
             border: none;
             border-radius: 0;
@@ -128,6 +128,9 @@
 
                     .step-info-details {
                         padding: 48px;
+                        max-width: 600px;
+                        width: 100%;
+                        margin: auto;
                     }
 
                     .step-info-footer {
@@ -138,18 +141,18 @@
                         justify-content: space-between;
                         align-items: center;
 
-                        button {
-                            font-weight: 600;
-                            font-size: 12px;
-                            line-height: 15px;
-                            letter-spacing: 0.07em;
-                            text-transform: uppercase;
-                            color: #4d585f;
-                            padding: 12px 26px;
-                            border: 1px solid #969ea3;
-                            background-color: transparent;
-                            font-family: inter;
-                        }
+                        // button {
+                        //     font-weight: 600;
+                        //     font-size: 12px;
+                        //     line-height: 15px;
+                        //     letter-spacing: 0.07em;
+                        //     text-transform: uppercase;
+                        //     color: #4d585f;
+                        //     padding: 12px 26px;
+                        //     border: 1px solid #969ea3;
+                        //     background-color: transparent;
+                        //     font-family: inter;
+                        // }
                     }
                 }
             }

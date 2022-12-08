@@ -122,9 +122,9 @@ const StepFormModal = ({
                           {stepNumber === 6 && <StepSix />}
                       </div>
                       <div className="step-info-footer">
-                          {stepNumber > 1 && <button onClick={backBtn}>Back</button>}
+                          {stepNumber > 1 && <button onClick={backBtn} className='minimalBtn'>Back</button>}
                           {stepNumber < 6 ? (
-                              <button className="bg-green" onClick={nextBtn}>
+                              <button className="fillBtn" onClick={nextBtn}>
                                   Continue
                                   <span>
                                       <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
