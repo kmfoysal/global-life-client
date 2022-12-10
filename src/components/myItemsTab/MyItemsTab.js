@@ -11,7 +11,7 @@ const MyItemsTab = () => {
                 {/* <Row> */}
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Row>
-                            <Col sm={3}>
+                            <Col md={3}>
                                 <Nav variant="pills" className="flex-column tab-nav">
                                     <Nav.Item>
                                         <Nav.Link eventKey="first" className="tab-nav-link">
@@ -80,7 +80,7 @@ const MyItemsTab = () => {
                                     </Nav.Item>
                                 </Nav>
                             </Col>
-                            <Col sm={9}>
+                            <Col md={9}>
                                 <div>
                                     <MyItemTabHeader />
                                 </div>

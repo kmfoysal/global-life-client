@@ -4,7 +4,7 @@ import './step.scss';
 
 const StepOne = () => {
     return (
-        <div className="step-one">
+        <form className="step-one">
             <h2 className="text-clr-dark-1fs-48">Description</h2>
             <div className="mt-5">
                 <h5 className="fs-18 ff-inter fw-semibold text-clr-dark-1">Title</h5>
@@ -20,7 +20,7 @@ const StepOne = () => {
                 <p className="text-clr-dark-3 ff-inter mb-4">Add more details to your event.</p>
                 <TextEditor />
             </div>
-        </div>
+        </form>
     );
 };
 

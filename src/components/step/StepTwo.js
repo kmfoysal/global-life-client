@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Modal } from 'react-bootstrap';
 import CategoryModal from '../categoryModal/CategoryModal';
-import './step.scss'
+import './step.scss';
 
 const StepTwo = () => {
 
@@ -14,7 +13,7 @@ const StepTwo = () => {
     };
 
     return (
-        <div className="step-two">
+        <form className="step-two">
             <h2 className="text-clr-dark-1fs-48">Category</h2>
             <p className="fs-18 text-clr-dark-3 ff-inter mb-5">What will your event focus on?</p>
             <button className="category-btn" onClick={handleShow}>
@@ -28,7 +27,7 @@ const StepTwo = () => {
             <div className="category-modal">
                 <CategoryModal showCategory={showCategory} handleClose={handleClose} />
             </div>
-        </div>
+        </form>
     );
 };
 

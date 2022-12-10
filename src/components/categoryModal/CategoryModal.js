@@ -74,7 +74,7 @@ const CategoryModal = ({ showCategory, handleClose, handleShow }) => {
                     <div className="category-list">
                         <div className="row">
                             {categoryList.map((cat) => (
-                                <div className="col-md-6">
+                                <div className="col-md-6" key={cat.categoryName}>
                                     <div key={`default-${cat?.categoryName}`} className="mb-3 d-flex justify-content-between align-items-center radio-cat-wrapper">
                                         <label htmlFor="catRadio" className="text-clr-dark-2 fw-semibold text-capitalize fs-6 ltr-spacing-0">
                                             {cat?.categoryName}
