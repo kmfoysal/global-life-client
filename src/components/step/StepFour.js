@@ -1,9 +1,13 @@
 import React from 'react';
 import { Col, FloatingLabel, Form, Row } from 'react-bootstrap';
+import useStepFormContext from '../../hooks/useStepFormContext';
 
 const StepFour = () => {
+
+  const { formData, handleChange } = useStepFormContext();
+  
     return (
-      <form className="step-four">
+      <div className="step-four">
         <h2 className="text-clr-dark-1fs-48">Date, Time and Costs</h2>
         <p className="fs-18 text-clr-dark-3 ff-inter mb-5">
           Tell event-goers when your event starts and ends so they can make
@@ -13,26 +17,63 @@ const StepFour = () => {
         <Row className="g-4">
           <Col md>
             <FloatingLabel controlId="eventStart" label="Event Starts">
-              <Form.Control type="date" placeholder="Event Starts" />
+              <Form.Control
+                type="date"
+                placeholder="Event Starts"
+                name="startDate"
+                value={formData?.startDate}
+                onChange={handleChange}
+                required
+              />
             </FloatingLabel>
           </Col>
           <Col md>
             <FloatingLabel controlId="eventEnd" label="Event End">
-              <Form.Control type="date" placeholder="Event End" />
+              <Form.Control
+                type="date"
+                placeholder="Event End"
+                name="endDate"
+                value={formData?.endDate}
+                onChange={handleChange}
+                required
+              />
             </FloatingLabel>
           </Col>
           <Col md>
             <FloatingLabel controlId="startTime" label="Start Time">
-              <Form.Control type="time" placeholder="Start Time" />
+              <Form.Control
+                type="time"
+                placeholder="Start Time"
+                name="startTime"
+                value={formData?.startTime}
+                onChange={handleChange}
+                required
+              />
             </FloatingLabel>
           </Col>
           <Col md>
             <FloatingLabel controlId="endTime" label="Event End">
-              <Form.Control type="time" placeholder="Event End" />
+              <Form.Control
+                type="time"
+                placeholder="Event End"
+                name="endTime"
+                value={formData?.endTime}
+                onChange={handleChange}
+                required
+              />
             </FloatingLabel>
           </Col>
+          <FloatingLabel controlId="cost" label="Individual Cost">
+            <Form.Control
+              type="text"
+              placeholder="Individual Cost"
+              name="cost"
+              value={formData?.cost}
+              onChange={handleChange}
+            />
+          </FloatingLabel>
         </Row>
-      </form>
+      </div>
     );
 };
 

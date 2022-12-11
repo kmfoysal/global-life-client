@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import StepOne from "../step/StepOne";
-import StepTwo from "../step/StepTwo";
-import StepThree from "../step/StepThree";
-import StepFour from "../step/StepFour";
+import { Link } from "react-router-dom";
+import StepCompletedIcon from '../../assets/images/step-completed.png';
+import useStepFormContext from "../../hooks/useStepFormContext";
 import StepFive from "../step/StepFive";
+import StepFour from "../step/StepFour";
+import StepOne from "../step/StepOne";
 import StepSix from "../step/StepSix";
-import StepCompletedIcon from '../../assets/images/step-completed.png'
+import StepThree from "../step/StepThree";
+import StepTwo from "../step/StepTwo";
 
 
 
@@ -20,7 +22,9 @@ const StepFormModal = ({
   handleShowForm,
 }) => {
 
-    const [stepNumber, setStepNumber] = useState(1);
+  const [stepNumber, setStepNumber] = useState(1);
+  
+  const { formData, canSubmit } = useStepFormContext();
 
     const backBtn = () => {
         let step = stepNumber;
@@ -30,7 +34,12 @@ const StepFormModal = ({
     const nextBtn = () => {
         let step = stepNumber;
         setStepNumber(step + 1);
-    };
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  }
 
     const steps = [
         {
@@ -142,7 +151,7 @@ const StepFormModal = ({
               {/* <!--end::Nav--> */}
             </div>
           </div>
-          <div className="step-info">
+          <form className="step-info" onSubmit={handleSubmit}>
             <div className="step-info-details">
               {stepNumber === 1 && <StepOne />}
               {stepNumber === 2 && <StepTwo />}
@@ -153,12 +162,12 @@ const StepFormModal = ({
             </div>
             <div className="step-info-footer">
               {stepNumber > 1 && (
-                <button onClick={backBtn} className="minimalBtn">
+                <Link onClick={backBtn} className="minimalBtn">
                   Back
-                </button>
+                </Link>
               )}
               {stepNumber < 6 ? (
-                <button className="fillBtn" onClick={nextBtn}>
+                <Link className="fillBtn" onClick={nextBtn}>
                   Continue
                   <span>
                     <svg
@@ -174,9 +183,9 @@ const StepFormModal = ({
                       />
                     </svg>
                   </span>
-                </button>
+                </Link>
               ) : (
-                <button className="fillBtn">
+                <button type="submit" className="fillBtn" disabled={!canSubmit}>
                   Create an Event
                   <span>
                     <svg
@@ -195,7 +204,7 @@ const StepFormModal = ({
                 </button>
               )}
             </div>
-          </div>
+          </form>
         </div>
       </Modal>
     </div>
