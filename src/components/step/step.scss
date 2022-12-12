@@ -24,5 +24,27 @@ label {
 }
 
 .step-two{
+
+    .radio-cat-wrapper {
+                border-bottom: 1px solid rgba(26, 34, 39, 0.15);
+                padding: 12px 0;
+
+                .form-check-input {
+                    height: 18px;
+                    width: 18px;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .action-btn {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 12px;
+                margin-top: 36px;
+            }
     
 }

@@ -9,7 +9,7 @@ export const StepFormProvider = ({children}) => {
   const [formData, setFormData] = useState({
     title: '',
     desc:'',
-    category: '',
+    category: "",
     streetAddress: '',
     apartment: '',
     city: '',
@@ -30,11 +30,9 @@ export const StepFormProvider = ({children}) => {
 
   const handleChange = (e) => {
 
-    const type = e.target.type;
-
     const name = e.target.name;
 
-    const value = type === "radio" ? e.target.checked : e.target.value;
+    const value =  e.target.value;
 
     setFormData((prevData) => ({
       ...prevData,

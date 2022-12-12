@@ -394,4 +394,9 @@ body {
     background-color: #0A8270;
     font-family: inter; 
     gap: 5px;
+
+    &:disabled {
+        cursor: not-allowed !important;
+        opacity: 0.5;
+    }
 }

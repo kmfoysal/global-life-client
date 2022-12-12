@@ -6,6 +6,10 @@ const StepSix = () => {
 
   const { formData, handleChange } = useStepFormContext();
 
+  const handleAdd = () => {
+
+  }
+
     return (
       <div className="step-six">
         <h2 className="text-clr-dark-1fs-48">Tags</h2>
@@ -26,6 +30,7 @@ const StepSix = () => {
             />
           </FloatingLabel>
         </Row>
+        <button className='mt-4 btn btn-success' type='button' onClick={handleAdd}>ADD</button>
       </div>
     );
 };

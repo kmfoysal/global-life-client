@@ -24,7 +24,7 @@ const StepFormModal = ({
 
   const [stepNumber, setStepNumber] = useState(1);
   
-  const { formData, canSubmit } = useStepFormContext();
+  const { formData, canSubmit, setFormData } = useStepFormContext();
 
     const backBtn = () => {
         let step = stepNumber;
@@ -39,6 +39,7 @@ const StepFormModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    setFormData({});
   }
 
     const steps = [
@@ -162,12 +163,12 @@ const StepFormModal = ({
             </div>
             <div className="step-info-footer">
               {stepNumber > 1 && (
-                <Link onClick={backBtn} className="minimalBtn">
+                <button type="button" onClick={backBtn} className="minimalBtn">
                   Back
-                </Link>
+                </button>
               )}
               {stepNumber < 6 ? (
-                <Link className="fillBtn" onClick={nextBtn}>
+                <button type="button" className="fillBtn" onClick={nextBtn}>
                   Continue
                   <span>
                     <svg
@@ -183,7 +184,7 @@ const StepFormModal = ({
                       />
                     </svg>
                   </span>
-                </Link>
+                </button>
               ) : (
                 <button type="submit" className="fillBtn" disabled={!canSubmit}>
                   Create an Event
