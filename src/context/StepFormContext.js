@@ -41,23 +41,23 @@ export const StepFormProvider = ({children}) => {
 
   };
 
-  const { desc, category, apartment, videoLink, ...requiredInputs } = formData;
+  const { desc, apartment, videoLink, ...requiredInputs } = formData;
   
-  const canSubmit = [...Object.values(requiredInputs)].every(Boolean);
+  const canSubmit = [...Object.values(requiredInputs)].every(Boolean); 
 
 
     
     return (
-      <StepFormContext.Provider
-        value={{
-          formData,
-          setFormData,
-          handleChange,
-          canSubmit,
-        }}
-      >
-        {children}
-      </StepFormContext.Provider>
+        <StepFormContext.Provider
+            value={{
+                formData,
+                setFormData,
+                handleChange,
+                canSubmit,
+            }}
+        >
+            {children}
+        </StepFormContext.Provider>
     );
 
 }

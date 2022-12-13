@@ -30,7 +30,7 @@ const StepTwo = () => {
                     className="form-control ps-0 mt-4"
                     placeholder="Add an Additional category (Optional)"
                     name="addCategory"
-                    value={formData?.catRadio}
+                    value={formData?.category}
                     // onChange={handleChange}
                 />
             </div>

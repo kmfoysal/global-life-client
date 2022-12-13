@@ -61,7 +61,7 @@ const CategoryModal = ({
 
   const { formData, handleChange } = useStepFormContext();
   
-  console.log(formData.catRadio);
+  console.log(formData.category);
 
 
 
@@ -92,9 +92,9 @@ const CategoryModal = ({
                                       <Form.Check
                                           type="radio"
                                           // id={cat?.categoryName}
-                                          name="catRadio"
+                                          name="category"
                                           value={cat?.categoryName}
-                                          checked={formData?.catRadio === cat?.categoryName}
+                                          checked={formData?.category === cat?.categoryName}
                                           onChange={handleChange}
                                       />
                                   </div>
