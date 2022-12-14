@@ -1,0 +1,31 @@
+.happeningNextWrapper {
+    .card {
+        .card-body {
+            padding: 5px 5px 5px 0;
+            .card-title {
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 34px;
+                color: #1a2227;
+                margin-top: 5px !important;
+                transition: 0.3s all linear;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            .readMore {
+                transition: 0.3s all linear;
+                span {
+                    transition: 0.3s all linear;
+                }
+                &:hover {
+                    color: #0a8270;
+                    span {
+                        padding-left: 8px !important;
+                    }
+                }
+            }
+        }
+    }
+}

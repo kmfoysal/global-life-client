@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import StepCompletedIcon from '../../assets/images/step-completed.png';
 import useStepFormContext from "../../hooks/useStepFormContext";
 import StepFive from "../step/StepFive";
@@ -56,32 +56,94 @@ const StepFormModal = ({
         setStepNumber(step + 1);
   };
   
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log(formData);
 
-    setFormData({
-        title: "",
-        desc: "",
-        category: "",
-        streetAddress: "",
-        apartment: "",
-        city: "",
-        countryState: "",
-        postalCode: "",
-        country: "",
-        startDate: "",
-        endDate: "",
-        startTime: "",
-        endTime: "",
-        cost: "",
-        photos: [],
-        videoLink: "",
-        tags: [],
-    });
+//     setFormData({
+//         title: "",
+//         desc: "",
+//         category: "",
+//         streetAddress: "",
+//         apartment: "",
+//         city: "",
+//         countryState: "",
+//         postalCode: "",
+//         country: "",
+//         startDate: "",
+//         endDate: "",
+//         startTime: "",
+//         endTime: "",
+//         cost: "",
+//         photos: [],
+//         videoLink: "",
+//         tags: [],
+//     });
 
-    handleCloseForm();
-  }
+//     handleCloseForm();
+//   }
+
+  const handleSubmit = async (e) => {
+
+      e.preventDefault();
+
+       console.log(formData);
+
+
+   const event = {
+       //    username: user.username,
+       title: formData.title,
+       desc: formData.desc,
+       category: formData.category,
+       streetAddress: formData.streetAddress,
+       apartment: formData.apartment,
+       city: formData.city,
+       countryState: formData.countryState,
+       postalCode: formData.postalCode,
+       country: formData.country,
+       startDate: formData.startDate,
+       endDate: formData.endDate,
+       startTime: formData.startTime,
+       endTime: formData.endTime,
+       cost: formData.cost,
+       photos: formData.photos,
+       videoLink: formData.videoLink,
+       tags: formData.tags,
+   };
+
+      try {
+        
+          await axios.post("http://localhost:5000/api/events/createevent", event);
+
+          setFormData({
+              title: "",
+              desc: "",
+              category: "",
+              streetAddress: "",
+              apartment: "",
+              city: "",
+              countryState: "",
+              postalCode: "",
+              country: "",
+              startDate: "",
+              endDate: "",
+              startTime: "",
+              endTime: "",
+              cost: "",
+              photos: [],
+              videoLink: "",
+              tags: [],
+          });
+
+          handleCloseForm();
+
+        //   Navigate("/login");
+
+      } catch (err) {
+          console.log(err);
+      }
+  };
+
 
     const steps = [
         {
