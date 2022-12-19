@@ -30,9 +30,11 @@ export const StepFormProvider = ({children}) => {
 
   const handleChange = (e) => {
 
+    const type = e.target.type;
+
     const name = e.target.name;
 
-    const value =  e.target.value;
+    const value = type === "file" ? e.target.files[0] : e.target.value;
 
     setFormData((prevData) => ({
       ...prevData,

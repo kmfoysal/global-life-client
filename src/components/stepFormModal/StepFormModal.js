@@ -106,10 +106,24 @@ const StepFormModal = ({
        startTime: formData.startTime,
        endTime: formData.endTime,
        cost: formData.cost,
-       photos: formData.photos,
+       photos: [formData.photos],
        videoLink: formData.videoLink,
        tags: formData.tags,
    };
+
+   if (formData?.photos) {
+       const data = new FormData();
+       const filename = Date.now() + '_' + formData?.photos.name;
+       data.append("name", filename);
+       data.append("file", formData.photos);
+
+       event.photos = filename;
+       try {
+           await axios.post("http://localhost:5000/api/uploads", data);
+       } catch (err) {
+        console.log(err);
+       }
+   }
 
       try {
         
@@ -249,7 +263,7 @@ const StepFormModal = ({
                                   </span>
                               </button>
                           ) : (
-                              <button type="submit" className="fillBtn" disabled={ disableNext && !canSubmit}>
+                              <button type="submit" className="fillBtn" disabled={disableNext && !canSubmit}>
                                   Create an Event
                                   <span>
                                       <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
