@@ -1,13 +1,13 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
 import bannerImg from "../../assets/images/banner.png";
 import Banner from "../../components/Banner/Banner";
 import HappingNext from "../../components/happingNext/HappingNext";
 import useFetch from "../../hooks/useFetch";
 const HomePage = () => {
+
     const { data, loading } = useFetch("http://localhost:5000/api/events/allevents");
 
-    console.log(data[1]?.desc);
-    console.log(loading);
 
     return (
         <div>
@@ -18,21 +18,21 @@ const HomePage = () => {
                 inputText={"Find what’s happening, recomendation and more... "}
             />
 
-            <div className="p-5">{data[1]?.desc.replace(/(<([^>]+)>)/gi, "")}</div>
+            {/* <div className="p-5">{data[1]?.desc.replace(/(<([^>]+)>)/gi, "")}</div> (Text Editor) */}
 
-            <section class="heppeningNext sectionPadding">
-                <div class="container">
-                    <div class="commonTitle">
-                        <h2 class="m-0 py-4 text-center fs-36 fw-medium text-dark1">What's Happening Next?</h2>
+            <section className="heppeningNext sectionPadding">
+                <div className="container">
+                    <div className="commonTitle">
+                        <h2 className="m-0 py-4 text-center fs-36 fw-medium text-dark1">What's Happening Next?</h2>
                     </div>
 
-                    <div class="happeningNextWrapper mt-5">
-                        <div class="row">
-                            {data.map((event) => (
-                                <HappingNext key={event._id} event={event} />
-                            ))}
-                            <div class="d-flex justify-content-center mt-5">
-                                <button class="commonBtn ff-inter bg-green discoverBtn text-uppercase ls-1 d-flex align-items-center justify-content-center text-white fs-12">
+                    <div className="happeningNextWrapper mt-5">
+                        <div className="row">
+                            <div className="d-flex justify-content-center align-items-center h-50">{loading && <Spinner animation="grow" variant="warning" />}</div>
+
+                            {!loading && data.map((event) => <HappingNext key={event._id} event={event} />)}
+                            <div className="d-flex justify-content-center mt-5">
+                                <button className="commonBtn ff-inter bg-green discoverBtn text-uppercase ls-1 d-flex align-items-center justify-content-center text-white fs-12">
                                     <span>Discover More</span>
                                 </button>
                             </div>

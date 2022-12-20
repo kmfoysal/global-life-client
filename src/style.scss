@@ -400,3 +400,17 @@ body {
         opacity: 0.5;
     }
 }
+
+.event-category {
+                font-weight: 600;
+                font-size: 12px;
+                font-family: inter;
+                line-height: 15px;
+                letter-spacing: 0.07em;
+                text-transform: uppercase;
+                color: #1a2227;
+                // background-color: #ebe49b;
+                padding: 3px 8px;
+                display: inline-block;
+                margin-bottom: 12px;
+            }

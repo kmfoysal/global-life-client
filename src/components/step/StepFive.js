@@ -1,10 +1,9 @@
-import React from 'react';
-import { FloatingLabel, Form, Row } from 'react-bootstrap';
-import useStepFormContext from '../../hooks/useStepFormContext';
+import React from "react";
+import { FloatingLabel, Form, Row } from "react-bootstrap";
+import useStepFormContext from "../../hooks/useStepFormContext";
 
 const StepFive = () => {
-
-  const { formData, handleChange } = useStepFormContext();
+    const { formData, handleChange } = useStepFormContext();
 
     return (
         <div className="step-five">
@@ -15,6 +14,9 @@ const StepFive = () => {
                 <FloatingLabel controlId="uploadImg" label="Upload Image">
                     <Form.Control type="file" name="photos" placeholder="Upload Image" onChange={handleChange} multiple />
                 </FloatingLabel>
+                {/* <div className="col-md-4"></div>
+                <div className="col-md-4">{<img className="img-fluid" src={URL.createObjectURL(formData?.photos)} alt="img" />}</div>
+                <div className="col-md-4"></div> */}
                 <FloatingLabel controlId="videoLink" label="Video Link">
                     <Form.Control type="text" placeholder="Video Link" name="videoLink" value={formData?.videoLink} onChange={handleChange} />
                 </FloatingLabel>

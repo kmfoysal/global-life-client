@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Navigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import useAuth from "../hooks/useAuth";
 
 const PublicRoute = ({ children }) => {
     
-      const { user } = useContext(AuthContext);
+      const { user } = useAuth();
 
     return !user?.email ? children : <Navigate to="/" />;
 };

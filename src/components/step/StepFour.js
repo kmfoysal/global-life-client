@@ -65,7 +65,7 @@ const StepFour = () => {
           </Col>
           <FloatingLabel controlId="cost" label="Individual Cost">
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Individual Cost"
               name="cost"
               value={formData?.cost}

@@ -12,19 +12,6 @@
         border-bottom: 2px solid var(--gray-1);
 
         .info {
-            .event-category {
-                font-weight: 600;
-                font-size: 12px;
-                font-family: inter;
-                line-height: 15px;
-                letter-spacing: 0.07em;
-                text-transform: uppercase;
-                color: #1a2227;
-                background-color: #ebe49b;
-                padding: 3px 8px;
-                display: inline-block;
-                margin-bottom: 12px;
-            }
 
             .status {
                 font-weight: 500;
@@ -50,6 +37,10 @@
                 color: #4d585f;
                 margin-bottom: 0;
             }
+        }
+
+        .img-box{
+            width: 180px;
         }
     }
 

@@ -124,12 +124,13 @@ input {
     }
 }
 
-.form-control {
+.form-control, .form-select {
     font-family: "Inter", sans-serif;
     border-radius: 0;
     border: 0;
     border-bottom: 1px solid var(--dark-4);
 }
+
 
 .randomClass {
     padding: 17px 15px;

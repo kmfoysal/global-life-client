@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
-import arrow from '../../assets/images/whiteArrow.png';
-import { AuthContext } from '../../context/AuthContext';
 import message from "../../assets/images/MessageLeft.svg";
 import notification from "../../assets/images/ring.svg";
 import AuthorImg from "../../assets/images/user1.png";
+import arrow from '../../assets/images/whiteArrow.png';
+import useAuth from '../../hooks/useAuth';
 import './Header.scss';
 
  
 const Header = () => {
 
-    const { user, dispatch } = useContext(AuthContext);
+    const { user, dispatch } = useAuth();
 
      const handleLogout = () => {
          dispatch({ type: "LOGOUT" });
@@ -52,16 +52,16 @@ const Header = () => {
 
                       {user?.email && (
                           <div className="grid-item text-xl-center d-flex align-items-center gap-4">
-                              <a href="#" class="fs-12 fw-semiBold text-dark1 ff-inter text-uppercase text-decoration-none">
+                              <a href="#" className="fs-12 fw-semiBold text-dark1 ff-inter text-uppercase text-decoration-none">
                                   2
-                                  <span class="ps-1">
-                                      <img src={message} class="img-fluid" alt="message" />
+                                  <span className="ps-1">
+                                      <img src={message} className="img-fluid" alt="message" />
                                   </span>
                               </a>
-                              <a href="#" class="fs-12 fw-semiBold text-danger ff-inter text-uppercase text-decoration-none">
+                              <a href="#" className="fs-12 fw-semiBold text-danger ff-inter text-uppercase text-decoration-none">
                                   8
-                                  <span class="ps-1">
-                                      <img src={notification} class="img-fluid" alt="message" />
+                                  <span className="ps-1">
+                                      <img src={notification} className="img-fluid" alt="message" />
                                   </span>
                               </a>
                               <div className="header-right-catalog me-sm-2">

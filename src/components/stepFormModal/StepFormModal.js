@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+import { Navigate } from "react-router-dom";
 import StepCompletedIcon from '../../assets/images/step-completed.png';
+import useAuth from "../../hooks/useAuth";
 import useStepFormContext from "../../hooks/useStepFormContext";
 import StepFive from "../step/StepFive";
 import StepFour from "../step/StepFour";
@@ -55,33 +57,9 @@ const StepFormModal = ({
         let step = stepNumber;
         setStepNumber(step + 1);
   };
+
+  const { user } = useAuth();
   
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(formData);
-
-//     setFormData({
-//         title: "",
-//         desc: "",
-//         category: "",
-//         streetAddress: "",
-//         apartment: "",
-//         city: "",
-//         countryState: "",
-//         postalCode: "",
-//         country: "",
-//         startDate: "",
-//         endDate: "",
-//         startTime: "",
-//         endTime: "",
-//         cost: "",
-//         photos: [],
-//         videoLink: "",
-//         tags: [],
-//     });
-
-//     handleCloseForm();
-//   }
 
   const handleSubmit = async (e) => {
 
@@ -91,8 +69,10 @@ const StepFormModal = ({
 
 
    const event = {
-       //    username: user.username,
+       userId: user._id,
+       username: user.username,
        title: formData.title,
+       postType: formData.postType,
        desc: formData.desc,
        category: formData.category,
        streetAddress: formData.streetAddress,
@@ -106,7 +86,7 @@ const StepFormModal = ({
        startTime: formData.startTime,
        endTime: formData.endTime,
        cost: formData.cost,
-       photos: [formData.photos],
+       photos: formData.photos,
        videoLink: formData.videoLink,
        tags: formData.tags,
    };
@@ -115,9 +95,10 @@ const StepFormModal = ({
        const data = new FormData();
        const filename = Date.now() + '_' + formData?.photos.name;
        data.append("name", filename);
-       data.append("file", formData.photos);
+       data.append("photos", formData.photos);
 
        event.photos = filename;
+
        try {
            await axios.post("http://localhost:5000/api/uploads", data);
        } catch (err) {
@@ -131,6 +112,7 @@ const StepFormModal = ({
 
           setFormData({
               title: "",
+              postType: '',
               desc: "",
               category: "",
               streetAddress: "",
@@ -144,14 +126,14 @@ const StepFormModal = ({
               startTime: "",
               endTime: "",
               cost: "",
-              photos: [],
+              photos: "",
               videoLink: "",
               tags: [],
           });
 
           handleCloseForm();
 
-        //   Navigate("/login");
+          Navigate("/myitems");
 
       } catch (err) {
           console.log(err);
@@ -188,7 +170,7 @@ const StepFormModal = ({
     
   return (
       <div>
-          <div class="mb-20"></div>
+          <div className="mb-20"></div>
           <Modal show={showForm} onHide={handleCloseForm} centered className="form-modal">
               <button className="close-btn border-0 bg-transparent" onClick={handleCloseForm}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -216,17 +198,17 @@ const StepFormModal = ({
                       <h5>{stepNumber}/6</h5>
                       <div>
                           {/* <!--begin::Nav--> */}
-                          <div class="stepper-nav flex-cente">
+                          <div className="stepper-nav flex-cente">
                               {steps.map((item) => {
                                   return (
-                                      <div class={`stepper-item ${item.step === stepNumber && "active"} ${item.step < stepNumber && "completed"}`} key={item.step}>
-                                          <div class="stepper-line w-40px"></div>
-                                          <div class="stepper-icon w-40px h-40px">
+                                      <div className={`stepper-item ${item.step === stepNumber && "active"} ${item.step < stepNumber && "completed"}`} key={item.step}>
+                                          <div className="stepper-line w-40px"></div>
+                                          <div className="stepper-icon w-40px h-40px">
                                               {item.step < stepNumber && <img src={StepCompletedIcon} alt="icon" className="img-fluid" />}
-                                              {item.step >= stepNumber && <span class="stepper-number">{item?.step}</span>}
+                                              {item.step >= stepNumber && <span className="stepper-number">{item?.step}</span>}
                                           </div>
-                                          <div class="stepper-label ms-3">
-                                              <h3 class="stepper-title">{item?.title}</h3>
+                                          <div className="stepper-label ms-3">
+                                              <h3 className="stepper-title">{item?.title}</h3>
                                           </div>
                                       </div>
                                   );

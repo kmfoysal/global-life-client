@@ -21,7 +21,7 @@ export const StepFormProvider = ({children}) => {
     startTime: '',
     endTime: '',
     cost: '',
-    photos: [],
+    photos: '',
     videoLink: '',
     tags: [],
   });
@@ -35,6 +35,7 @@ export const StepFormProvider = ({children}) => {
     const name = e.target.name;
 
     const value = type === "file" ? e.target.files[0] : e.target.value;
+
 
     setFormData((prevData) => ({
       ...prevData,
