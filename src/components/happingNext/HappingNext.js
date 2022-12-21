@@ -7,7 +7,31 @@ const HappingNext = ({event}) => {
 
     const PF = "https://globallife-api.onrender.com/images/";
 
-    const { title, streetAddress, photos, cost, startDate, startTime, postType,desc } = event;
+    const { title, streetAddress, photos, cost, startDate, startTime, postType, desc } = event;
+
+//     /
+//   <h   // Match literal <h
+//   (.)  // Match any character and save in a group
+//   >    // Match literal <
+//   .*?  // Match any character zero or more times, non greedy
+//   <\/h // Match literal </h
+//   \1   // Match what previous grouped in (.)
+//   >    // Match literal >
+// /g
+
+    // const str = desc;
+
+    // const arraytitle = str.match(/<h(.)>.*?<\/h\1>/g);
+
+    // const para = str.match(/<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>/g);
+
+    // const arrayList = str.match(/<\s*li[^>]*>([^<]*)<\s*\/\s*li\s*>/g);
+
+
+    // console.log(arrayList);
+
+
+
 
 
     return (
@@ -40,6 +64,9 @@ const HappingNext = ({event}) => {
                     </div>
                 </div>
             </Link>
+            {/* {para.map((i) => (
+                <li>{i.replace(/(<([^>]+)>)/gi, "")}</li>
+            ))} */}
         </div>
     );
 };

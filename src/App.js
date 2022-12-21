@@ -3,6 +3,7 @@ import './App.css';
 import Footer from "./components/Footer/Footer";
 import Header from './components/Header/Header';
 import { StepFormProvider } from './context/StepFormContext';
+import EventDetails from './pages/eventDetails/EventDetails';
 import HomePage from "./pages/home/HomePage";
 import Login from "./pages/Login/Login";
 import MyItems from './pages/myItems/MyItems';
@@ -14,11 +15,12 @@ import PublicRoute from './utils/PublicRoute';
 
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename="/">
           <Header />
           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
+              <Route path="/eventdetails" element={<EventDetails />} />
               <Route
                   path="/login"
                   element={

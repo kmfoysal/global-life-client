@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import Logo from '../../assets/images/logo-global-life.svg';
 import { AuthContext } from '../../context/AuthContext';
@@ -52,50 +53,53 @@ const Login = () => {
                                       <img src={Logo} alt="logo" className="img-fluid text-center" />
                                       <h4 className="mt-4 text-clr-dark-1 fs-24 lh-34">The Private Members Network for International Families</h4>
 
-                                      <form onSubmit={handleSubmit}>
-                                          <div className="form-field-area ff-playfair">
-                                              <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
-                                                  <input type="email" id="email" className="fw-semiBold" required onChange={handleChange} />
-                                                  <label for="email"> Email </label>
-                                                  <line></line>
-                                              </div>
+                                      {loading && <Spinner animation="grow" variant="warning" />}
 
-                                              <div id="show_hide_password" className="input-box position-relative animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start pt-3">
-                                                  <input type="password" id="password" className="text-uppercase fs-12 fw-semiBold" name="password" required onChange={handleChange} />
-                                                  <label for="password"> Password </label>
-                                                  <line></line>
+                                      {!loading && (
+                                          <form onSubmit={handleSubmit}>
+                                              <div className="form-field-area ff-playfair">
+                                                  <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
+                                                      <input type="email" id="email" className="fw-semiBold" required onChange={handleChange} />
+                                                      <label for="email"> Email </label>
+                                                      <line></line>
+                                                  </div>
 
-                                                  <div className="pass-show-hide position-absolute end-0 me-3">
-                                                      <Link to="#">
-                                                          <i toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password" aria-hidden="true"></i>
-                                                      </Link>
+                                                  <div id="show_hide_password" className="input-box position-relative animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start pt-3">
+                                                      <input type="password" id="password" className="text-uppercase fs-12 fw-semiBold" name="password" required onChange={handleChange} />
+                                                      <label for="password"> Password </label>
+                                                      <line></line>
+
+                                                      <div className="pass-show-hide position-absolute end-0 me-3">
+                                                          <Link to="#">
+                                                              <i toggle="#password-field" className="fa fa-fw fa-eye field-icon toggle-password" aria-hidden="true"></i>
+                                                          </Link>
+                                                      </div>
+                                                  </div>
+
+                                                  <div className="accept-box d-flex justify-content-between flex-wrap mt-4">
+                                                      <div className="form-check ff-inter d-flex align-items-center gap-2">
+                                                          <input className="form-check-input " type="checkbox" value="" id="rememberMe" />
+                                                          <label className="form-check-label fs-14 lh-22 text-clr-dark-4 " for="rememberMe">
+                                                              Remember Me
+                                                          </label>
+                                                      </div>
+                                                      <a href="reset-password.html" className="ff-inter fs-14 lh-22 text-clr-dark-4 hover-color">
+                                                          Forgot Password?
+                                                      </a>
                                                   </div>
                                               </div>
 
-                                              <div className="accept-box d-flex justify-content-between flex-wrap mt-4">
-                                                  <div className="form-check ff-inter d-flex align-items-center gap-2">
-                                                      <input className="form-check-input " type="checkbox" value="" id="rememberMe" />
-                                                      <label className="form-check-label fs-14 lh-22 text-clr-dark-4 " for="rememberMe">
-                                                          Remember Me
-                                                      </label>
-                                                  </div>
-                                                  <a href="reset-password.html" className="ff-inter fs-14 lh-22 text-clr-dark-4 hover-color">
-                                                      Forgot Password?
-                                                  </a>
-                                              </div>
-                                          </div>
+                                              <button
+                                                  type="submit"
+                                                  className="fill-color-btn signIn-btn text-center w-100 bg-green text-white text-uppercase ff-inter fs-12 fw-semiBold ltr-spacing-07"
+                                                  disabled={loading}
+                                              >
+                                                  Login
+                                              </button>
 
-                                          <button
-                                              type="submit"
-                                              className="fill-color-btn signIn-btn text-center w-100 bg-green text-white text-uppercase ff-inter fs-12 fw-semiBold ltr-spacing-07"
-                                              disabled={loading}
-                                          >
-                                              Login
-                                          </button>
-
-                                          {error && <span className='text-danger mt-3 d-inline-block'>{error.message}</span>}
-
-                                      </form>
+                                              {error && <span className="text-danger mt-3 d-inline-block">{error.message}</span>}
+                                          </form>
+                                      )}
 
                                       <p className="ff-inter text-clr-dark-3 fs-14 lh-22 mt-4">
                                           Don't have an account?{" "}
