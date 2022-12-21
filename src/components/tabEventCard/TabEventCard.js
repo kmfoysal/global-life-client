@@ -8,9 +8,9 @@ const TabEventCard = () => {
 
     const {user} = useAuth()
 
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://globallife-api.onrender.com/images/";
 
-    const { data, loading, error } = useFetch(`http://localhost:5000/api/events/allevents/${user?.username}`);
+    const { data, loading, error } = useFetch(`https://globallife-api.onrender.com/api/events/allevents/${user?.username}`);
 
     return (
         <div>

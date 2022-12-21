@@ -100,7 +100,7 @@ const StepFormModal = ({
        event.photos = filename;
 
        try {
-           await axios.post("http://localhost:5000/api/uploads", data);
+           await axios.post("https://globallife-api.onrender.com/api/uploads", data);
        } catch (err) {
         console.log(err);
        }
@@ -108,7 +108,7 @@ const StepFormModal = ({
 
       try {
         
-          await axios.post("http://localhost:5000/api/events/createevent", event);
+          await axios.post("https://globallife-api.onrender.com/api/events/createevent", event);
 
           setFormData({
               title: "",

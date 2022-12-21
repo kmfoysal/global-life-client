@@ -5,7 +5,7 @@ import "./happingNext.scss";
 
 const HappingNext = ({event}) => {
 
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://globallife-api.onrender.com/images/";
 
     const { title, streetAddress, photos, cost, startDate, startTime, postType,desc } = event;
 

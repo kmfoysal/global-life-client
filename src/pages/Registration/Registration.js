@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
-import './registration.scss';
-import Logo from '../../assets/images/logo-global-life.svg';
-import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import React, { useRef } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import Logo from '../../assets/images/logo-global-life.svg';
+import './registration.scss';
 
 const Registration = () => {
 
@@ -25,7 +25,7 @@ const Registration = () => {
       };
 
       try {
-        await axios.post("http://localhost:5000/api/auth/register", user);
+        await axios.post("https://globallife-api.onrender.com/api/auth/register", user);
 
         navigate("/login");
         

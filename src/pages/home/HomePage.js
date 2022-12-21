@@ -6,7 +6,7 @@ import HappingNext from "../../components/happingNext/HappingNext";
 import useFetch from "../../hooks/useFetch";
 const HomePage = () => {
 
-    const { data, loading } = useFetch("http://localhost:5000/api/events/allevents");
+    const { data, loading } = useFetch("https://globallife-api.onrender.com/api/events/allevents");
 
 
     return (
