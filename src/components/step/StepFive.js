@@ -12,7 +12,7 @@ const StepFive = () => {
 
             <Row className="g-4">
                 <FloatingLabel controlId="uploadImg" label="Upload Image">
-                    <Form.Control type="file" name="photos" placeholder="Upload Image" onChange={handleChange} multiple />
+                    <Form.Control type="file" name="photos" accept=".png,.jpeg,.jpg" placeholder="Upload Image" onChange={handleChange} formEncType="multipart/form-data" />
                 </FloatingLabel>
                 {/* <div className="col-md-4"></div>
                 <div className="col-md-4">{<img className="img-fluid" src={URL.createObjectURL(formData?.photos)} alt="img" />}</div>

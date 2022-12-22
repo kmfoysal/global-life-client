@@ -4,7 +4,7 @@ import "./happingNext.scss";
 
 const HappingNext = ({ event }) => {
 
-    const PF = "https://globallife-api.onrender.com/images/";
+    const PF = "http://localhost:5000/images/";
 
     const {_id, title, streetAddress, photos, cost, startDate, startTime, postType, desc } = event;
 
@@ -40,7 +40,7 @@ const HappingNext = ({ event }) => {
           className="card border-0 text-decoration-none"
         >
           <img
-            src={PF + photos}
+            src={PF + photos?.[0]}
             className="card-img-top img-fluid"
             alt="event-img"
           />

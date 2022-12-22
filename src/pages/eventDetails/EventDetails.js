@@ -14,7 +14,7 @@ const EventDetails = () => {
   const { eventId } = useParams();
 
   const { data, loading } = useFetch(
-    "https://globallife-api.onrender.com/api/events/allevents"
+    "http://localhost:5000/api/events/allevents"
   );
 
     const singleDetails = data?.find((event) => event?._id === (eventId));

@@ -29,7 +29,7 @@ const Login = () => {
          dispatch({ type: "LOGIN_START" });
 
          try {
-             const res = await axios.post("https://globallife-api.onrender.com/api/auth/login", credentials);
+             const res = await axios.post("http://localhost:5000/api/auth/login", credentials);
              dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
 
              if(res?.data?.details?.email){

@@ -5,6 +5,8 @@ const StepFormContext = createContext();
 
 
 export const StepFormProvider = ({children}) => {
+
+  const [loading, setLoading] = useState(false);
   
   const [formData, setFormData] = useState({
     title: '',
@@ -57,6 +59,8 @@ export const StepFormProvider = ({children}) => {
                 setFormData,
                 handleChange,
                 canSubmit,
+                loading,
+                setLoading,
             }}
         >
             {children}

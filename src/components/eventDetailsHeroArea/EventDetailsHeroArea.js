@@ -11,7 +11,7 @@ import './eventDetailsHeroArea.scss';
 
 const EventDetailsHeroArea = ({ singleDetails }) => {
 
-        const PF = "https://globallife-api.onrender.com/images/";
+        const PF = "http://localhost:5000/images/";
 
     
   return (
