@@ -4,6 +4,7 @@ import bannerImg from "../../assets/images/banner.png";
 import Banner from "../../components/Banner/Banner";
 import HappingNext from "../../components/happingNext/HappingNext";
 import useFetch from "../../hooks/useFetch";
+
 const HomePage = () => {
 
     const { data, loading } = useFetch("http://localhost:5000/api/events/allevents");

@@ -40,7 +40,7 @@ const HappingNext = ({ event }) => {
           className="card border-0 text-decoration-none"
         >
           <img
-            src={PF + photos?.[0]}
+            src={PF + photos}
             className="card-img-top img-fluid"
             alt="event-img"
           />
