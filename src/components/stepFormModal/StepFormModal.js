@@ -14,6 +14,7 @@ import StepTwo from "../step/StepTwo";
 import "./stepFormModal.scss";
 
 const StepFormModal = ({ showForm, setShowForm, handleCloseForm, handleShowForm }) => {
+
     const [stepNumber, setStepNumber] = useState(1);
 
     const { formData, canSubmit, setFormData, loading, setLoading } = useStepFormContext();
@@ -47,6 +48,7 @@ const StepFormModal = ({ showForm, setShowForm, handleCloseForm, handleShowForm 
     const { user } = useAuth();
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         console.log(formData);
@@ -72,9 +74,11 @@ const StepFormModal = ({ showForm, setShowForm, handleCloseForm, handleShowForm 
             photos: formData.photos,
             videoLink: formData.videoLink,
             tags: formData.tags,
+            followers: [],
         };
 
         if (formData?.photos) {
+
             const data = new FormData();
             const filename = Date.now() + "_" + formData?.photos.name;
             data.append("name", filename);
