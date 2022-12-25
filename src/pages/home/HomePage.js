@@ -15,7 +15,7 @@ const HomePage = () => {
 
   const handleLoadMore = () => {
     // setPage(page + 1);
-    setLimit(limit + 4);
+    setLimit(pre=> pre+4);
   };
 
   console.log(data?.limit);
