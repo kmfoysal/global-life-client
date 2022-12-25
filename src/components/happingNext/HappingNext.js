@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./happingNext.scss";
@@ -6,7 +7,7 @@ const HappingNext = ({ event }) => {
 
     const PF = "http://localhost:5000/images/";
 
-    const {_id, title, streetAddress, photos, cost, startDate, startTime, postType, desc } = event;
+    const {_id, title, streetAddress, photos, cost, startDate, startTime, postType } = event;
 
 //     /
 //   <h   // Match literal <h
@@ -28,6 +29,16 @@ const HappingNext = ({ event }) => {
 
 
     // console.log(arrayList);
+  
+  const countHandler = () => {
+    try {
+      axios.put(
+        `http://localhost:5000/api/events/allevents/${_id}/views`
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
 
 
@@ -38,6 +49,7 @@ const HappingNext = ({ event }) => {
         <Link
           to={`/eventdetails/${_id}`}
           className="card border-0 text-decoration-none"
+          onClick={countHandler}
         >
           <img
             src={PF + photos}

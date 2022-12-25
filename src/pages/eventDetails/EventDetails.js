@@ -17,7 +17,7 @@ const EventDetails = () => {
     "http://localhost:5000/api/events/allevents"
   );
 
-    const singleDetails = data?.find((event) => event?._id === (eventId));
+    const singleDetails = data.events?.find((event) => event?._id === (eventId));
     
     console.log(singleDetails);
 
@@ -53,7 +53,7 @@ const EventDetails = () => {
               </div>
 
               {!loading &&
-                data.map((event) => (
+                data.events?.map((event) => (
                   <HappingNext key={event._id} event={event} />
                 ))}
               <div className="d-flex justify-content-center mt-5">

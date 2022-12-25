@@ -6,6 +6,7 @@ import StarSmall from "../../assets/images/star-smallpng.png";
 import Love from "../../assets/images/love.png";
 import ShareIcon from "../../assets/images/share-icon.png";
 import Reply from "../../assets/images/Forward.png";
+import { Link } from 'react-router-dom';
 
 
 
@@ -17,9 +18,9 @@ const EventReview = () => {
                     <div class="person-img">
                         <img src={userImg} alt="img" className="img-fluid" />
                     </div>
-                    <a href="#" class="text-clr-green fw-normal border-bottom border-success" data-bs-toggle="modal" data-bs-target="#SubmitReview">
+                    <Link class="text-clr-green fw-normal border-bottom border-success" data-bs-toggle="modal" data-bs-target="#SubmitReview">
                         Write a review
-                    </a>
+                    </Link>
                 </div>
                 <div class="review-ratting">
                     <ul class="ratting-list d-flex align-items-center gap-2 list-unstyled mb-0">
@@ -154,10 +155,10 @@ const EventReview = () => {
                             <div class="person-img">
                                 <img src={userImg} alt="img" />
                             </div>
-                            <div class="">
-                                <a href="#" class="fw-semiBold text-clr-dark-2 d-block mb-2">
+                            <div>
+                                <Link class="fw-semiBold text-clr-dark-2 d-block mb-2">
                                     Vivien Lokossou
-                                </a>
+                                </Link>
                                 <p class="fw-medium country text-clr-dark-2 mb-0 fs-12">France</p>
                             </div>
                         </div>
@@ -193,21 +194,21 @@ const EventReview = () => {
                     <div class="share-and-like py-3">
                         <ul class="d-flex align-items-center gap-1 list-unstyled mb-0">
                             <li class="border-end pe-3">
-                                <a href="#" class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase">
+                                <Link class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase">
                                     Reply
-                                </a>
+                                </Link>
                             </li>
                             <li class="border-end px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     <img src={Love} alt="icon" class="flex-shirnk-0" />
                                     Like
-                                </a>
+                                </Link>
                             </li>
                             <li class="px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase" text-decoration-none>
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase" text-decoration-none>
                                     <img src={ShareIcon} alt="icon" class="flex-shirnk-0" />
                                     Share
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -218,9 +219,9 @@ const EventReview = () => {
                                     <img src={Reply} alt="img" />
                                 </div>
                                 <div class="">
-                                    <a href="#" class="fw-semiBold text-clr-dark-2 d-block mb-2 fs-14" text-decoration-none>
+                                    <Link class="fw-semiBold text-clr-dark-2 d-block mb-2 fs-14" text-decoration-none>
                                         Reply from Satoshi Nakamoto
-                                    </a>
+                                    </Link>
                                     <p class="fw-medium text-clr-dark-2 mb-0 fs-14">
                                         Hearing from happy customers like you makes us feel great. <br class="d-none d-xl-inline" /> Thank you for sharing your experience! If you need further help,
                                         reach out any time!
@@ -240,9 +241,9 @@ const EventReview = () => {
                                 <img src={userImg} alt="img" />
                             </div>
                             <div class="">
-                                <a href="#" class="fw-semiBold text-clr-dark-2 d-block mb-2 text-decoration-none">
+                                <Link class="fw-semiBold text-clr-dark-2 d-block mb-2 text-decoration-none">
                                     Vivien Lokossou
-                                </a>
+                                </Link>
                                 <p class="fw-medium country text-clr-dark-2 mb-0 fs-12">Australia</p>
                             </div>
                         </div>
@@ -278,21 +279,21 @@ const EventReview = () => {
                     <div class="share-and-like pt-3">
                         <ul class="d-flex align-items-center gap-1 list-unstyled mb-0">
                             <li class="border-end pe-3">
-                                <a href="#" class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     Reply
-                                </a>
+                                </Link>
                             </li>
                             <li class="border-end px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     <img src={Love} alt="icon" class="flex-shirnk-0" />
                                     Like
-                                </a>
+                                </Link>
                             </li>
                             <li class="px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     <img src={ShareIcon} alt="icon" class="flex-shirnk-0" />
                                     Share
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -304,9 +305,9 @@ const EventReview = () => {
                                 <img src={userImg} alt="img" />
                             </div>
                             <div class="">
-                                <a href="#" class="fw-semiBold text-clr-dark-2 d-block mb-2">
+                                <Link class="fw-semiBold text-clr-dark-2 d-block mb-2">
                                     Vivien Lokossou
-                                </a>
+                                </Link>
                                 <p class="fw-medium country text-clr-dark-2 mb-0 fs-12">Australia</p>
                             </div>
                         </div>
@@ -342,21 +343,21 @@ const EventReview = () => {
                     <div class="share-and-like pt-3">
                         <ul class="d-flex align-items-center gap-1 list-unstyled mb-0">
                             <li class="border-end pe-3">
-                                <a href="#" class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     Reply
-                                </a>
+                                </Link>
                             </li>
                             <li class="border-end px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     <img src={Love} alt="icon" class="flex-shirnk-0" />
                                     Like
-                                </a>
+                                </Link>
                             </li>
                             <li class="px-3">
-                                <a href="#" class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
+                                <Link class="fw-medium d-flex align-items-center justify-content-center gap-2 fs-12 text-clr-dark-2 fw-semiBold text-uppercase text-decoration-none">
                                     <img src={ShareIcon} alt="icon" class="flex-shirnk-0" />
                                     Share
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

@@ -24,7 +24,7 @@ const EventDetailsContent = ({ singleDetails }) => {
     }
 
 
-    console.log(textEditorString);
+    // console.log(textEditorString);
 
     return (
         <div class="blog-content-wrapper">

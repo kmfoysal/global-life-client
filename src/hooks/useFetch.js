@@ -7,18 +7,20 @@ const useFetch = (url) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
+    // const [page, setPage] = useState(1);
+
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const res = await axios.get(url);
-                setData(res.data);
-            } catch (err) {
-                setError(err);
-            }
-            setLoading(false);
-        };
-        fetchData();
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const res = await axios.get(url);
+          setData(res.data);
+        } catch (err) {
+          setError(err);
+        }
+        setLoading(false);
+      };
+      fetchData();
     }, [url]);
 
     const reFetch = async () => {
