@@ -3,26 +3,31 @@ import useStepFormContext from '../../hooks/useStepFormContext';
 import CategoryModal from '../categoryModal/CategoryModal';
 import './step.scss';
 
-const StepTwo = () => {
+const StepTwo = ({currentData}) => {
 
     const [showCategory, setShowCategory] = useState(false);
 
-    const handleClose = () => setShowCategory(false);
+    // For Updating Value 
+    const [category, setCategory] = useState(currentData?.category);
+// ---------------------------------------------------------------
 
-    const handleShow = () => {
-        setShowCategory(true);
-    };
+    // const handleClose = () => setShowCategory(false);
 
-    const { formData, handleChange } = useStepFormContext();
+    // const handleShow = () => {
+    //     setShowCategory(true);
+    // };
+
+    const { formData, updateMode, handleChange } = useStepFormContext();
 
 
     return (
         <div className="step-two">
             <h2 className="text-clr-dark-1fs-48">Category</h2>
             <p className="fs-18 text-clr-dark-3 ff-inter mb-5">What will your event focus on?</p>
-            <button type="button" className="category-btn" onClick={handleShow}>
-                Select Category
-            </button>
+
+            <div className="category-modal">
+                <CategoryModal setCategory={setCategory} currentData={currentData} />
+            </div>
 
             <div>
                 <input
@@ -30,13 +35,9 @@ const StepTwo = () => {
                     className="form-control ps-0 mt-4"
                     placeholder="Add an Additional category (Optional)"
                     name="addCategory"
-                    value={formData?.category}
+                    defaultValue={formData?.category }
                     // onChange={handleChange}
                 />
-            </div>
-
-            <div className="category-modal">
-                <CategoryModal showCategory={showCategory} handleClose={handleClose} />
             </div>
         </div>
     );

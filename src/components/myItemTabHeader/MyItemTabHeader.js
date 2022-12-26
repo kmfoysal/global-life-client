@@ -15,7 +15,7 @@ const MyItemTabHeader = () => {
             <div className="events-area-header">
                 <div className="d-flex align-items-center justify-content-between flex-wrap pb-2">
                     <h4 className="fs-24 lh-34 fw-medium text-dark1 mb-0">What's happening?</h4>
-                    <button className="yellow-btn fs-12 lh-15 fw-semiBold text-uppercase ls-1 text-dark1 bg-yellow ff-inter d-flex align-items-center gap-2 border-0" onClick={handleShow}>
+                    {/* <button className="yellow-btn fs-12 lh-15 fw-semiBold text-uppercase ls-1 text-dark1 bg-yellow ff-inter d-flex align-items-center gap-2 border-0" onClick={handleShow}>
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M7.06055 2.22656H7.93945C8.01758 2.22656 8.05664 2.26562 8.05664 2.34375V12.6562C8.05664 12.7344 8.01758 12.7734 7.93945 12.7734H7.06055C6.98242 12.7734 6.94336 12.7344 6.94336 12.6562V2.34375C6.94336 2.26562 6.98242 2.22656 7.06055 2.22656Z"
@@ -28,7 +28,8 @@ const MyItemTabHeader = () => {
                         </svg>
 
                         <span>Create an event/experience</span>
-                    </button>
+                    </button> */}
+                    <PostTypeModal />
                 </div>
                 <div className="events-filter-area d-flex align-items-center justify-content-between mt-3 pb-4">
                     <div className="d-flex align-items-center gap-2">
@@ -117,7 +118,6 @@ const MyItemTabHeader = () => {
                     </div>
                 </div>
             </div>
-            <PostTypeModal show={show} handleClose={handleClose} handleShow={handleShow} />
         </div>
     );
 };

@@ -7,9 +7,11 @@ import './textEditor.scss';
 
 const TextEditor = ({ description }) => {
 
+  console.log(description);
+
     const { formData, updateMode } = useStepFormContext();
     
-    const [desc, setDesc] = useState(description);
+    // const [desc, setDesc] = useState(description);
 
   const modules = {
     toolbar: [
@@ -21,16 +23,16 @@ const TextEditor = ({ description }) => {
   const formats = ["header", "bold", "italic", "link", "list", "bullet"];
 
   return (
-    <div>
-      <ReactQuill
-        value={ updateMode ? desc : formData.desc}
-        onChange={(value) => {
-          updateMode ? setDesc(value) : formData.desc = value;
-        }}
-        modules={modules}
-        formats={formats}
-      />
-    </div>
+      <div>
+          <ReactQuill
+              value={updateMode ? description : formData.desc}
+              onChange={(value) => {
+                  updateMode ? (description = value ) : (formData.desc = value);
+              }}
+              modules={modules}
+              formats={formats}
+          />
+      </div>
   );
 };
 
