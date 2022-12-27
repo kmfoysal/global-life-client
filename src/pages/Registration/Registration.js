@@ -53,25 +53,25 @@ const Registration = () => {
                                           <div className="form-field-area ff-playfair">
                                               <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
                                                   <input type="text" id="fullname" className="fw-semiBold" ref={name} required />
-                                                  <label for="fullname"> Name </label>
+                                                  <label htmlFor="fullname"> Name </label>
                                                   <line></line>
                                               </div>
 
                                               <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
                                                   <input type="email" id="email" className="fw-semiBold" ref={email} required />
-                                                  <label for="email"> Email </label>
+                                                  <label htmlFor="email"> Email </label>
                                                   <line></line>
                                               </div>
 
                                               <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
                                                   <input type="text" id="username" className="fw-semiBold" ref={username} required />
-                                                  <label for="username"> Username </label>
+                                                  <label htmlFor="username"> Username </label>
                                                   <line></line>
                                               </div>
 
                                               <div id="show_hide_password" className="input-box position-relative animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start pt-3">
                                                   <input type="password" id="password-field" className="text-uppercase fs-12 fw-semiBold" name="password" required ref={password} />
-                                                  <label for="password-field"> Password </label>
+                                                  <label htmlFor="password-field"> Password </label>
                                                   <line></line>
 
                                                   <div className="pass-show-hide position-absolute end-0 me-3">

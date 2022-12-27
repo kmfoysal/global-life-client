@@ -64,7 +64,7 @@ const StepOne = ({ newFormData, handleUpdateChange }) => {
                     </FloatingLabel>
                 </div> */}
 
-                <TextEditor description={newFormData?.desc} />
+                <TextEditor description={newFormData} />
             </div>
         </div>
     );

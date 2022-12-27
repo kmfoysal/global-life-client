@@ -44,7 +44,7 @@ export const StepFormProvider = ({ children }) => {
     }));
   };
 
-  const { desc, apartment, videoLink, ...requiredInputs } = formData;
+  const { apartment, videoLink, photos, ...requiredInputs } = formData;
 
   const canSubmit = [...Object.values(requiredInputs)].every(Boolean);
 

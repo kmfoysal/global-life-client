@@ -12,6 +12,7 @@ const PostTypeModal = () => {
     const [showCreateBtn, setShowCreateBtn] = useState(false);
 
     const handleModalClose = () => setSWhowPostTypeModal(false);
+    
     const handleModalShow = () =>{ 
         setShowCreateBtn(true)
         setSWhowPostTypeModal(true);

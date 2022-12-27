@@ -1,7 +1,13 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
+import useFetch from "../../hooks/useFetch";
 import './myItemsHeader.scss'
 
 const MyItemsHeader = () => {
+
+    const { data, loading } = useFetch(`http://localhost:5000/api/events/allevents`);
+
+    
     return (
         <section className="myItemsHeader section-padding-72 bg-gray-3">
             <div className="container">
@@ -17,7 +23,10 @@ const MyItemsHeader = () => {
                         </svg>
                         <div>
                             <p className="mb-1 fs-14 ff-inter text-clr-dark-2">What's happening?</p>
-                            <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">40</h5>
+
+                            {loading && <Spinner size="sm" animation="grow" variant="warning" />}
+
+                            {!loading && <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">{data?.events?.length}</h5>}
                         </div>
                     </div>
                     <div className="item d-flex">

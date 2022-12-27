@@ -15,7 +15,6 @@ import StepTwo from "../step/StepTwo";
 import "./stepFormModal.scss";
 
 const StepFormModal = ({
-  setSWhowPostTypeModal,
   showEditMode,
   showCreateBtn,
   currentData,
@@ -43,7 +42,6 @@ const StepFormModal = ({
   };
 
   const handleShow = () => {
-    // setSWhowPostTypeModal(false);
     setShow(true);
   };
 
@@ -51,6 +49,7 @@ const StepFormModal = ({
     setUpdateMode(true);
     setShow(true);
   };
+
 
   // Step Form validation and Functionality
 
@@ -70,7 +69,7 @@ const StepFormModal = ({
     formData.cost !== "";
   const canStep6 = formData.videoLink !== "";
 
-  const canCreate = formData.tags !== "";
+  const canCreate = formData.tags !== [];
 
   const disableNext =
     (stepNumber === 1 && !canStep2) ||
@@ -122,9 +121,9 @@ const StepFormModal = ({
   // For Update Event State
 
   const [newFormData, setNewFormData] = useState({
-    _id: currentData._id,
-    userId: currentData.userId,
-    username: currentData.username,
+    _id: currentData?._id,
+    userId: currentData?.userId,
+    username: currentData?.username,
     title: currentData?.title,
     desc: currentData?.desc,
     postType: currentData?.postType,
@@ -161,9 +160,8 @@ const StepFormModal = ({
 
   //  Create Post or Event
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    console.log(formData);
+    e.preventDefault();
 
     const event = {
       userId: user._id,
@@ -225,12 +223,13 @@ const StepFormModal = ({
 
     setLoading(false);
   };
-
+  
   // --------------------------------------------------------------------------
 
   // Update Or Edit Post
 
   const handleUpdate = async (e) => {
+
     e.preventDefault();
 
     const updateCurrentEvent = {
@@ -257,24 +256,24 @@ const StepFormModal = ({
       tags: newFormData.tags,
     };
 
-    if (newFormData?.photos) {
-      const data = new FormData();
-      const filename = Date.now() + "_" + newFormData?.photos.name;
-      data.append("name", filename);
-      data.append("photos", newFormData.photos);
+    // if (newFormData?.photos) {
+    //   const data = new FormData();
+    //   const filename = Date.now() + "_" + newFormData?.photos.name;
+    //   data.append("name", filename);
+    //   data.append("photos", newFormData.photos);
 
-      updateCurrentEvent.photos = filename;
+    //   updateCurrentEvent.photos = filename;
 
-      try {
-        await axios.post("http://localhost:5000/api/uploads", data, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
+    //   try {
+    //     await axios.post("http://localhost:5000/api/uploads", data, {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     });
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
 
     setLoading(true);
 
@@ -285,7 +284,7 @@ const StepFormModal = ({
       );
 
       handleClose();
-      //   window.location.reload();
+        window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -294,7 +293,7 @@ const StepFormModal = ({
   };
   // ----------------------------------------------------------------
 
-  console.log(newFormData);
+
 
   return (
     <div>
@@ -419,7 +418,7 @@ const StepFormModal = ({
           {!loading && (
             <form
               className="step-info"
-              enctype="multipart/form-data"
+              encType="multipart/form-data"
               onSubmit={updateMode ? handleUpdate : handleSubmit}
             >
               <div className="step-info-details">
@@ -497,7 +496,7 @@ const StepFormModal = ({
                   <button
                     type="submit"
                     className="fillBtn"
-                    disabled={!updateMode && !canSubmit}
+                    disabled={!updateMode && !canSubmit && disableNext}
                   >
                     {updateMode ? "Update an Event" : "Create an Event"}
                     <span>

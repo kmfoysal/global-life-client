@@ -17,22 +17,21 @@ const EventDetails = () => {
     "http://localhost:5000/api/events/allevents"
   );
 
-    const singleDetails = data.events?.find((event) => event?._id === (eventId));
+    const singleDetails = data?.events?.find((event) => event?._id === (eventId));
     
-    console.log(singleDetails);
 
   return (
     <div>
       <EventDetailsHeroArea singleDetails={singleDetails} />
 
-      <div class="blog-details-main bg-gray3 py-4">
+      <div className="blog-details-main bg-gray3 py-4">
         <div className="container">
           <div className="row">
-            <div class="col-lg-8 ff-inter">
+            <div className="col-lg-8 ff-inter">
               <EventDetailsContent singleDetails={singleDetails} />
               <EventReview />
             </div>
-            <div class="col-lg-3 offset-1">
+            <div className="col-lg-3 offset-1">
               <EventSideBar singleDetails={singleDetails} />
             </div>
           </div>
@@ -53,7 +52,7 @@ const EventDetails = () => {
               </div>
 
               {!loading &&
-                data.events?.map((event) => (
+                data?.events?.map((event) => (
                   <HappingNext key={event._id} event={event} />
                 ))}
               <div className="d-flex justify-content-center mt-5">

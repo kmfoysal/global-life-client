@@ -19,7 +19,7 @@ const EventDetailsContent = ({ singleDetails }) => {
     //     { arraytitle: arraytitle?.[5], para: para?.[5] }
     // );
 
-    for (let i = 0; i < arraytitle?.length && para?.length; i++) {
+    for (let i = 0; i < arraytitle?.length || para?.length; i++) {
         textEditorString.push({ arraytitle: arraytitle?.[i], para: para?.[i] });
     }
 
@@ -27,24 +27,24 @@ const EventDetailsContent = ({ singleDetails }) => {
     // console.log(textEditorString);
 
     return (
-        <div class="blog-content-wrapper">
+        <div className="blog-content-wrapper">
             {textEditorString?.map((str) => (
-                <div class="row inner-wrapper border-bottom py-4" key={str?.arraytitle}>
-                    <div class="col-lg-3 blog-details-title">
-                        <h3 class="fs-4 fw-bold text-dark1">{str?.arraytitle?.replace(/(<([^>]+)>)/gi, "")}</h3>
+                <div className="row inner-wrapper border-bottom py-4" key={str?.arraytitle}>
+                    <div className="col-lg-3 blog-details-title">
+                        <h3 className="fs-4 fw-bold text-dark1">{str?.arraytitle?.replace(/(<([^>]+)>)/gi, "")}</h3>
                     </div>
-                    <div class="col-lg-9 blog-details-pra">
-                        <p class="fs-6 lh-26 text-dark2 ff-inter mb-0">{str?.para?.replace(/(<([^>]+)>)/gi, "")}</p>
+                    <div className="col-lg-9 blog-details-pra">
+                        <p className="fs-6 lh-26 text-dark2 ff-inter mb-0">{str?.para?.replace(/(<([^>]+)>)/gi, "")}</p>
                     </div>
                 </div>
             ))}
 
-            {/* <div class="inner-wrapper border-bottom d-flex gap-4 py-4">
-        <div class="blog-details-title w-25">
-          <h3 class="fs-4 fw-bold text-dark1">Speaker:</h3>
+            {/* <div className="inner-wrapper border-bottom d-flex gap-4 py-4">
+        <div className="blog-details-title w-25">
+          <h3 className="fs-4 fw-bold text-dark1">Speaker:</h3>
         </div>
-        <div class="blog-details-pra w-75">
-          <p class="fs-6 lh-26 text-dark2 ff-inter mb-0">
+        <div className="blog-details-pra w-75">
+          <p className="fs-6 lh-26 text-dark2 ff-inter mb-0">
             Vestibulum eu quam nec neque pellentesque efficitur id eget nisl.
             Proin porta est convallis lacus blandit pretium sed non enim.
             Maecenas lacinia non orci at aliquam. Donec finibus, urna bibendum
@@ -57,37 +57,37 @@ const EventDetailsContent = ({ singleDetails }) => {
           </p>
         </div>
       </div>
-      <div class="inner-wrapper border-bottom border-2 d-flex gap-4 py-4">
-        <div class="blog-details-title w-25">
-          <h3 class="fs-4 fw-bold text-dark1 mb-4">
-            Topic To Be <br class="d-none d-xl-inline" /> Covered:
+      <div className="inner-wrapper border-bottom border-2 d-flex gap-4 py-4">
+        <div className="blog-details-title w-25">
+          <h3 className="fs-4 fw-bold text-dark1 mb-4">
+            Topic To Be <br className="d-none d-xl-inline" /> Covered:
           </h3>
         </div>
-        <div class="w-75">
-          <ul class="blog-inner-list ps-4">
+        <div className="w-75">
+          <ul className="blog-inner-list ps-4">
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">
                 Fringilla Fusce Elit{" "}
               </p>
             </li>
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">
                 Parturient Venenatis Etiam
               </p>
             </li>
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">
                 Tortor Nullam Fringilla
               </p>
             </li>
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">Ullamcorper</p>
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">Ullamcorper</p>
             </li>
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">Malesuada Ipsum</p>
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">Malesuada Ipsum</p>
             </li>
             <li>
-              <p class="fs-6 lh-26 text-dark2 ff-inter mb-2">Lorem Ornare</p>
+              <p className="fs-6 lh-26 text-dark2 ff-inter mb-2">Lorem Ornare</p>
             </li>
           </ul>
         </div>

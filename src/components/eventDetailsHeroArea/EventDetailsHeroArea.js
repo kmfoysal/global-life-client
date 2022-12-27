@@ -18,8 +18,6 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
 
   const { user } = useAuth();
 
-  console.log(follow);
-
   const PF = "http://localhost:5000/images/";
 
   useEffect(() => {
@@ -43,87 +41,87 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
 
   return (
     <div>
-      <div class="event-details-banner">
-        <div class="container">
-          <div class="event-details align-items-center py-3">
-            <div class="event-details-left ">
-              <div class="d-flex gap-2 mb-3">
-                <div class="event-yellow bg-pale-goldenrod d-flex align-items-center justify-content-center">
-                  <p class="mb-0 ls-1 text-dark1 px-1 fw-semiBold ff-inter fs-12">
+      <div className="event-details-banner">
+        <div className="container">
+          <div className="event-details align-items-center py-3">
+            <div className="event-details-left ">
+              <div className="d-flex gap-2 mb-3">
+                <div className="event-yellow bg-pale-goldenrod d-flex align-items-center justify-content-center">
+                  <p className="mb-0 ls-1 text-dark1 px-1 fw-semiBold ff-inter fs-12">
                     {singleDetails?.postType}
                   </p>
                 </div>
-                <div class="event-gray bg-gray-2 d-flex align-items-center justify-content-center">
-                  <p class=" text-dark2 fw-semiBold px-1 fs-12 mb-0 ff-inter ls-1">
+                <div className="event-gray bg-gray-2 d-flex align-items-center justify-content-center">
+                  <p className=" text-dark2 fw-semiBold px-1 fs-12 mb-0 ff-inter ls-1">
                     {singleDetails?.tags.map((i) => i)}
                   </p>
                 </div>
               </div>
-              <div class="event-heading">
-                <h2 class="fs-48 lh-58 text-dark1 mb-4">
+              <div className="event-heading">
+                <h2 className="fs-48 lh-58 text-dark1 mb-4">
                   {singleDetails?.title}
                 </h2>
               </div>
-              <div class="event-information">
-                <div class="d-flex align-items-center gap-2">
-                  <div class=" d-flex align-items-center gap-2">
-                    <div class="d-flex align-items-center gap-1">
-                      <p class="mb-0 text-dark2 fs-14 fw-medium ff-inter">
+              <div className="event-information">
+                <div className="d-flex align-items-center gap-2">
+                  <div className=" d-flex align-items-center gap-2">
+                    <div className="d-flex align-items-center gap-1">
+                      <p className="mb-0 text-dark2 fs-14 fw-medium ff-inter">
                         Organiser:
                       </p>
-                      <Link class="text-dark1 fs-14 fw-medium ff-inter text-decoration-underline">
+                      <Link className="text-dark1 fs-14 fw-medium ff-inter text-decoration-underline">
                         {singleDetails?.username}
                       </Link>
                     </div>
-                    <div class="follow-btn d-flex align-items-center justify-content-center">
-                      <p class=" ff-inter text-clr-egyptian-green  p-1 bg-egyptian-green-light mb-0 ls-1">
+                    <div className="follow-btn d-flex align-items-center justify-content-center">
+                      <p className=" ff-inter text-clr-egyptian-green  p-1 bg-egyptian-green-light mb-0 ls-1">
                         Follow
                       </p>
                     </div>
-                    <div class="line"></div>
+                    <div className="line"></div>
                   </div>
-                  <div class="view d-flex align-items-center">
-                    <p class=" text-dark2 fs-14 fw-medium ff-inter mb-0">
+                  <div className="view d-flex align-items-center">
+                    <p className=" text-dark2 fs-14 fw-medium ff-inter mb-0">
                       €{singleDetails?.cost} Per Person
                     </p>
                   </div>
-                  <div class="line"></div>
-                  <div class="review d-flex align-items-center gap-2">
-                    <img src={Star} class="img-fluid" alt="star" />
-                    <p class=" text-dark2 fs-14 fw-medium ff-inter mb-0">
+                  <div className="line"></div>
+                  <div className="review d-flex align-items-center gap-2">
+                    <img src={Star} className="img-fluid" alt="star" />
+                    <p className=" text-dark2 fs-14 fw-medium ff-inter mb-0">
                       4.8/5 (230 reviews)
                     </p>
                   </div>
-                  <div class="line"></div>
-                  <div class="review d-flex align-items-center gap-3">
-                    <div class="card__content-body-users">
-                      <div class="image">
-                        <img src={Follower1} class="img-fluid" alt="reader" />
-                        <img src={Follower2} class="img-fluid" alt="reader" />
-                        <img src={Follower3} class="img-fluid" alt="reader" />
-                        <img src={Follower4} class="img-fluid" alt="reader" />
-                        <img src={Follower5} class="img-fluid" alt="reader" />
+                  <div className="line"></div>
+                  <div className="review d-flex align-items-center gap-3">
+                    <div className="card__content-body-users">
+                      <div className="image">
+                        <img src={Follower1} className="img-fluid" alt="reader" />
+                        <img src={Follower2} className="img-fluid" alt="reader" />
+                        <img src={Follower3} className="img-fluid" alt="reader" />
+                        <img src={Follower4} className="img-fluid" alt="reader" />
+                        <img src={Follower5} className="img-fluid" alt="reader" />
                       </div>
                     </div>
 
-                    <p class=" text-dark2 fs-14 fw-medium ff-inter mb-0">
+                    <p className=" text-dark2 fs-14 fw-medium ff-inter mb-0">
                       {follow} Followers
                     </p>
                   </div>
-                  <div class="line"></div>
-                  <div class="view d-flex align-items-center gap-2">
-                    <img src={Eye} class="img-fluid" alt="eye" />
-                    <p class=" text-dark2 fs-14 fw-medium ff-inter mb-0">
+                  <div className="line"></div>
+                  <div className="view d-flex align-items-center gap-2">
+                    <img src={Eye} className="img-fluid" alt="eye" />
+                    <p className=" text-dark2 fs-14 fw-medium ff-inter mb-0">
                       {singleDetails?.views}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="event-details-right ms-auto ">
+            <div className="event-details-right ms-auto ">
               <div>
                 <button
-                  class="btn-green ls-1 fs-12 text-uppercase fw-semiBold text-white d-flex justify-content-center mb-3 align-items-center border-0 bg-green ff-inter"
+                  className="btn-green ls-1 fs-12 text-uppercase fw-semiBold text-white d-flex justify-content-center mb-3 align-items-center border-0 bg-green ff-inter"
                   type="button"
                   onClick={followHandler}
                   disabled={!user?.email}
@@ -131,7 +129,7 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
                   {!isFollowed ? "Follow This Event" : "Unollow This Event"}
                 </button>
                 <button
-                  class="single-border-btn ls-1 fs-12 text-uppercase d-flex align-items-center fw-semiBold ff-inter justify-content-center mb-3"
+                  className="single-border-btn ls-1 fs-12 text-uppercase d-flex align-items-center fw-semiBold ff-inter justify-content-center mb-3"
                   type="button"
                 >
                   Share this event
@@ -140,25 +138,25 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
             </div>
           </div>
 
-          <div class="blog-details-wrapper mt-5 d-flex align-items-center justify-content-center gap-3">
-            <div class="blog-details-img">
+          <div className="blog-details-wrapper mt-5 d-flex align-items-center justify-content-center gap-3">
+            <div className="blog-details-img">
               <img
                 src={PF + singleDetails?.photos}
-                class="img-fluid"
+                className="img-fluid"
                 alt="blog-details"
               />
             </div>
-            <div class="blog-details-img">
+            <div className="blog-details-img">
               <img
                 src={PF + singleDetails?.photos}
-                class="img-fluid"
+                className="img-fluid"
                 alt="blog-details"
               />
             </div>
-            <div class="blog-details-img">
+            <div className="blog-details-img">
               <img
                 src={PF + singleDetails?.photos}
-                class="img-fluid"
+                className="img-fluid"
                 alt="blog-details"
               />
             </div>

@@ -60,13 +60,13 @@ const Login = () => {
                                               <div className="form-field-area ff-playfair">
                                                   <div className="animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start mb-4">
                                                       <input type="email" id="email" className="fw-semiBold" required onChange={handleChange} />
-                                                      <label for="email"> Email </label>
+                                                      <label htmlFor="email"> Email </label>
                                                       <line></line>
                                                   </div>
 
                                                   <div id="show_hide_password" className="input-box position-relative animate-label text-uppercase fs-12 fw-semiBold ff-inter text-start pt-3">
                                                       <input type="password" id="password" className="text-uppercase fs-12 fw-semiBold" name="password" required onChange={handleChange} />
-                                                      <label for="password"> Password </label>
+                                                      <label htmlFor="password"> Password </label>
                                                       <line></line>
 
                                                       <div className="pass-show-hide position-absolute end-0 me-3">
@@ -79,7 +79,7 @@ const Login = () => {
                                                   <div className="accept-box d-flex justify-content-between flex-wrap mt-4">
                                                       <div className="form-check ff-inter d-flex align-items-center gap-2">
                                                           <input className="form-check-input " type="checkbox" value="" id="rememberMe" />
-                                                          <label className="form-check-label fs-14 lh-22 text-clr-dark-4 " for="rememberMe">
+                                                          <label className="form-check-label fs-14 lh-22 text-clr-dark-4 " htmlFor="rememberMe">
                                                               Remember Me
                                                           </label>
                                                       </div>
