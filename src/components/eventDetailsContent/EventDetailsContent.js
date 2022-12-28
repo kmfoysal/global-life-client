@@ -4,9 +4,9 @@ const EventDetailsContent = ({ singleDetails }) => {
   
     const textEditorString = [];
 
-    const arraytitle = singleDetails?.desc.match(/<h(.)>.*?<\/h\1>/g);
+    const arraytitle = singleDetails?.desc?.match(/<h(.)>.*?<\/h\1>/g);
 
-    const para = singleDetails?.desc.match(/<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>/g);
+    const para = singleDetails?.desc?.match(/<\s*p[^>]*>([^<]*)<\s*\/\s*p\s*>/g);
 
     //   const arrayList = str.match(/<\s*li[^>]*>([^<]*)<\s*\/\s*li\s*>/g);
 
@@ -19,12 +19,9 @@ const EventDetailsContent = ({ singleDetails }) => {
     //     { arraytitle: arraytitle?.[5], para: para?.[5] }
     // );
 
-    for (let i = 0; i < arraytitle?.length || para?.length; i++) {
+    for (let i = 0; i < arraytitle?.length && para?.length; i++) {
         textEditorString.push({ arraytitle: arraytitle?.[i], para: para?.[i] });
     }
-
-
-    // console.log(textEditorString);
 
     return (
         <div className="blog-content-wrapper">

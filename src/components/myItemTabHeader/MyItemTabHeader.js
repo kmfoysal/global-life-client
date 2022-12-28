@@ -1,34 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PostTypeModal from '../postTypeModal/PostTypeModal';
 import './myItemTabHeader.scss';
 
 const MyItemTabHeader = () => {
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     return (
         <div>
             <div className="events-area-header">
                 <div className="d-flex align-items-center justify-content-between flex-wrap pb-2">
                     <h4 className="fs-24 lh-34 fw-medium text-dark1 mb-0">What's happening?</h4>
-                    {/* <button className="yellow-btn fs-12 lh-15 fw-semiBold text-uppercase ls-1 text-dark1 bg-yellow ff-inter d-flex align-items-center gap-2 border-0" onClick={handleShow}>
-                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7.06055 2.22656H7.93945C8.01758 2.22656 8.05664 2.26562 8.05664 2.34375V12.6562C8.05664 12.7344 8.01758 12.7734 7.93945 12.7734H7.06055C6.98242 12.7734 6.94336 12.7344 6.94336 12.6562V2.34375C6.94336 2.26562 6.98242 2.22656 7.06055 2.22656Z"
-                                fill="#1A2227"
-                            />
-                            <path
-                                d="M2.57812 6.94336H12.4219C12.5 6.94336 12.5391 6.98242 12.5391 7.06055V7.93945C12.5391 8.01758 12.5 8.05664 12.4219 8.05664H2.57812C2.5 8.05664 2.46094 8.01758 2.46094 7.93945V7.06055C2.46094 6.98242 2.5 6.94336 2.57812 6.94336Z"
-                                fill="#1A2227"
-                            />
-                        </svg>
-
-                        <span>Create an event/experience</span>
-                    </button> */}
                     <PostTypeModal />
                 </div>
                 <div className="events-filter-area d-flex align-items-center justify-content-between mt-3 pb-4">

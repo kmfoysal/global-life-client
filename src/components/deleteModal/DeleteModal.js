@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
-import './deleteModal.scss'
+import './deleteModal.scss';
 
 const DeleteModal = ({ currentData }) => {
     const [show, setShow] = useState(false);

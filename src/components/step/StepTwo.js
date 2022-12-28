@@ -5,8 +5,6 @@ import './step.scss';
 
 const StepTwo = ({ newFormData, handleUpdateChange }) => {
 
-//   const [showCategory, setShowCategory] = useState(false);
-
   const { formData, updateMode } = useStepFormContext();
 
   return (

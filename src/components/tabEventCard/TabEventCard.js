@@ -1,6 +1,7 @@
-import axios from "axios";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useFetch from "../../hooks/useFetch";
 import DeleteModal from "../deleteModal/DeleteModal";
@@ -13,13 +14,15 @@ const TabEventCard = () => {
 
     const PF = "http://localhost:5000/images/";
 
-    const { data, loading, error } = useFetch(`http://localhost:5000/api/events/allevents/${user?.username}`);
+    const { data, loading, error } = useFetch(`http://localhost:5000/api/events/myevents/${user?.username}`);
 
     const [loadedData, setLoadedData] = useState();
 
     useEffect(() => {
       setLoadedData(data);
     }, [data]);
+
+    console.log(loadedData);
 
 
     return (
@@ -35,12 +38,14 @@ const TabEventCard = () => {
                                 <p className="status">
                                     <span>€{i?.cost}</span> |{" "}
                                     <span>
-                                        {i?.startDate} at {i?.startTime}
+                                        {moment(i?.startDate).add(0, "days").calendar().slice(0, -12)} at {i?.startTime}
                                     </span>{" "}
-                                    | <span>480 Followers</span>
+                                    | <span>{i?.followers?.length} Followers</span>
                                 </p>
-                                <h4 className="title">{i?.title}</h4>
-                                <p className="address">{i?.streetAddress}</p>
+                                <Link to={`/eventdetails/${i?._id}`} className="title text-decoration-none">
+                                    {i?.title}
+                                </Link>
+                                <p className="address mt-2">{i?.streetAddress}</p>
                             </div>
                             <div className="img-box">
                                 <img className="img-fluid" src={PF + i?.photos} alt="img" />
@@ -48,11 +53,9 @@ const TabEventCard = () => {
                         </div>
 
                         <div className="d-flex">
-
                             <StepFormModal currentData={i} />
 
                             <DeleteModal currentData={i} />
-                            
                         </div>
                     </div>
                 ))}

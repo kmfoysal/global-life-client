@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AllEvents from './components/allEvents/AllEvents';
 import Footer from "./components/Footer/Footer";
 import Header from './components/Header/Header';
 import { StepFormProvider } from './context/StepFormContext';
@@ -20,6 +21,7 @@ function App() {
           <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<HomePage />} />
+              <Route path="/allevents" element={<AllEvents />} />
               <Route path="/eventdetails/:eventId" element={<EventDetails />} />
               <Route
                   path="/login"

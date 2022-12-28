@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
 import useFetch from "../../hooks/useFetch";
-import './myItemsHeader.scss'
+import './myItemsHeader.scss';
 
 const MyItemsHeader = () => {
 
-    const { data, loading } = useFetch(`http://localhost:5000/api/events/allevents`);
+    const {user} = useAuth();
+
+     const { data, loading, error } = useFetch(`http://localhost:5000/api/events/myevents/${user?.username}`);
+
+     const [loadedData, setLoadedData] = useState();
+
+     useEffect(() => {
+         setLoadedData(data);
+     }, [data]);
 
     
     return (
@@ -26,7 +35,7 @@ const MyItemsHeader = () => {
 
                             {loading && <Spinner size="sm" animation="grow" variant="warning" />}
 
-                            {!loading && <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">{data?.events?.length}</h5>}
+                            {!loading && !error && <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">{loadedData?.length > 0 ?  loadedData?.length : 0}</h5>}
                         </div>
                     </div>
                     <div className="item d-flex">

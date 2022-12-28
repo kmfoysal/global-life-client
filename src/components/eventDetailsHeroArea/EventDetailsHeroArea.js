@@ -53,7 +53,7 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
                 </div>
                 <div className="event-gray bg-gray-2 d-flex align-items-center justify-content-center">
                   <p className=" text-dark2 fw-semiBold px-1 fs-12 mb-0 ff-inter ls-1">
-                    {singleDetails?.tags.map((i) => i)}
+                    {singleDetails?.tags?.map((i) => i)}
                   </p>
                 </div>
               </div>
@@ -69,14 +69,14 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
                       <p className="mb-0 text-dark2 fs-14 fw-medium ff-inter">
                         Organiser:
                       </p>
-                      <Link className="text-dark1 fs-14 fw-medium ff-inter text-decoration-underline">
+                      <Link  className="text-dark1 fs-14 fw-medium ff-inter text-decoration-underline">
                         {singleDetails?.username}
                       </Link>
                     </div>
                     <div className="follow-btn d-flex align-items-center justify-content-center">
-                      <p className=" ff-inter text-clr-egyptian-green  p-1 bg-egyptian-green-light mb-0 ls-1">
+                      <button className="border-0 ff-inter text-clr-egyptian-green  p-1 bg-egyptian-green-light mb-0 ls-1">
                         Follow
-                      </p>
+                      </button>
                     </div>
                     <div className="line"></div>
                   </div>

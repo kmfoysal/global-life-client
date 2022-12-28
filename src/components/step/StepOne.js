@@ -1,21 +1,14 @@
 import React from "react";
-import { useState } from "react";
 import { Form } from "react-bootstrap";
-import useFetch from "../../hooks/useFetch";
 import useStepFormContext from "../../hooks/useStepFormContext";
 import TextEditor from "../textEditor/TextEditor";
 import "./step.scss";
 
 const StepOne = ({ newFormData, handleUpdateChange }) => {
-    // const [title, setTitle] = useState(currentData?.title);
-    // const [postType, setPostType] = useState(currentData?.postType);
-    // const [title, setTitle] = useState(currentData?.title);
+    
 
     const { formData, handleChange, updateMode } = useStepFormContext();
 
-    const { data, loading, error } = useFetch(`http://localhost:5000/api/events/allevents/`);
-
-    // console.log(currentData);
 
     return (
         <div className="step-one">
@@ -58,13 +51,8 @@ const StepOne = ({ newFormData, handleUpdateChange }) => {
                 <h5 className="fs-18 ff-inter fw-semibold text-clr-dark-1">Description</h5>
                 <p className="text-clr-dark-3 ff-inter mb-4">Add more details to your event.</p>
 
-                {/* <div className="mb-5">
-                    <FloatingLabel controlId="floatingTextarea2" label="Write description here">
-                        <Form.Control as="textarea" placeholder="Leave a comment here"  style={{ height: "200px" }} />
-                    </FloatingLabel>
-                </div> */}
-
                 <TextEditor description={newFormData} />
+
             </div>
         </div>
     );
