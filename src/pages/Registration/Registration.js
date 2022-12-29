@@ -25,7 +25,7 @@ const Registration = () => {
       };
 
       try {
-        await axios.post("http://localhost:5000/api/auth/register", user);
+        await axios.post("https://global-life-api.onrender.com/api/auth/register", user);
 
         navigate("/login");
         

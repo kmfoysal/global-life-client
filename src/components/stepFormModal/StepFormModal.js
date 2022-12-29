@@ -197,7 +197,7 @@ const StepFormModal = ({
       event.photos = filename;
 
       try {
-        await axios.post("http://localhost:5000/api/uploads", data, {
+        await axios.post("https://global-life-api.onrender.com/api/uploads", data, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -210,7 +210,7 @@ const StepFormModal = ({
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/events/createevent", event);
+      await axios.post("https://global-life-api.onrender.com/api/events/createevent", event);
 
       setFormData({});
 
@@ -265,7 +265,7 @@ const StepFormModal = ({
     //   updateCurrentEvent.photos = filename;
 
     //   try {
-    //     await axios.post("http://localhost:5000/api/uploads", data, {
+    //     await axios.post("https://global-life-api.onrender.com/api/uploads", data, {
     //       headers: {
     //         "Content-Type": "multipart/form-data",
     //       },
@@ -279,7 +279,7 @@ const StepFormModal = ({
 
     try {
       await axios.put(
-        `http://localhost:5000/api/events/allevents/${newFormData?._id}`,
+        `https://global-life-api.onrender.com/api/events/allevents/${newFormData?._id}`,
         updateCurrentEvent
       );
 

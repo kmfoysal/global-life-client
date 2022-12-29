@@ -15,7 +15,7 @@ const DeleteModal = ({ currentData }) => {
 
      const handleDelete = async () => {
          try {
-             await axios.delete(`http://localhost:5000/api/events/allevents/${currentData?._id}`, {
+             await axios.delete(`https://global-life-api.onrender.com/api/events/allevents/${currentData?._id}`, {
                  data: { username: user.username },
              });
             

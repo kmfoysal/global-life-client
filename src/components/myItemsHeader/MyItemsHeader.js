@@ -8,7 +8,7 @@ const MyItemsHeader = () => {
 
     const {user} = useAuth();
 
-     const { data, loading, error } = useFetch(`http://localhost:5000/api/events/myevents/${user?.username}`);
+     const { data, loading, error } = useFetch(`https://global-life-api.onrender.com/api/events/myevents/${user?.username}`);
 
      const [loadedData, setLoadedData] = useState();
 
@@ -35,7 +35,7 @@ const MyItemsHeader = () => {
 
                             {loading && <Spinner size="sm" animation="grow" variant="warning" />}
 
-                            {!loading && !error && <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">{loadedData?.length > 0 ?  loadedData?.length : 0}</h5>}
+                            {!loading && !error && <h5 className="mb-0 fs-30 ff-inter text-clr-dark-1">{loadedData?.myEvents?.length > 0 ?  loadedData?.myEvents?.length : 0}</h5>}
                         </div>
                     </div>
                     <div className="item d-flex">

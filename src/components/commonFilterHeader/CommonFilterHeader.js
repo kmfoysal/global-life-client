@@ -5,7 +5,7 @@ import "./commonFilterHeader.scss";
 
 const CommonFilterHeader = ({ filterByType, filterByCategory, handleReset }) => {
     
-    const { data } = useFetch(`http://localhost:5000/api/events/allevents`);
+    const { data } = useFetch(`https://global-life-api.onrender.com/api/events/allevents`);
 
     return (
         <div className="events-area-header">

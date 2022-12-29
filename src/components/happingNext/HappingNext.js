@@ -6,7 +6,7 @@ import "./happingNext.scss";
 
 const HappingNext = ({ event }) => {
 
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://global-life-api.onrender.com/images/";
 
     const {_id, title, streetAddress, photos, cost, startDate, startTime, postType, followers } = event;
 
@@ -34,7 +34,7 @@ const HappingNext = ({ event }) => {
   const countHandler = () => {
     try {
       axios.put(
-        `http://localhost:5000/api/events/allevents/${_id}/views`
+        `https://global-life-api.onrender.com/api/events/allevents/${_id}/views`
       );
     } catch (err) {
       console.log(err);

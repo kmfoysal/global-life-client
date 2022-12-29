@@ -12,7 +12,7 @@ import "./eventDetails.scss";
 const EventDetails = () => {
     const { eventId } = useParams();
 
-    const { data, loading } = useFetch(`http://localhost:5000/api/events/allevents?limit=4&sort=createdAt&asc=-1`);
+    const { data, loading } = useFetch(`https://global-life-api.onrender.com/api/events/allevents?limit=4&sort=createdAt&asc=-1`);
 
     const singleDetails = data?.events?.find((event) => event?._id === eventId);
 

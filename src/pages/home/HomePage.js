@@ -10,7 +10,7 @@ const HomePage = () => {
   const [limit, setLimit] = useState(4);
 
   const { data, loading } = useFetch(
-    `http://localhost:5000/api/events/allevents?limit=${limit}&sort=createdAt&asc=-1`
+    `https://global-life-api.onrender.com/api/events/allevents?limit=${limit}&sort=createdAt&asc=-1`
   );
 
   const handleLoadMore = () => {

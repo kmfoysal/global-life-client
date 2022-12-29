@@ -18,7 +18,7 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
 
   const { user } = useAuth();
 
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://global-life-api.onrender.com/images/";
 
   useEffect(() => {
     setIsFollowed(singleDetails?.followers?.includes(user?._id));
@@ -28,7 +28,7 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
   const followHandler = () => {
     try {
       axios.put(
-        `http://localhost:5000/api/events/allevents/${singleDetails?._id}/follow`,
+        `https://global-life-api.onrender.com/api/events/allevents/${singleDetails?._id}/follow`,
         { userId: user?._id }
       );
     } catch (err) {

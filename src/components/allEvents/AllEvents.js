@@ -14,7 +14,7 @@ const AllEvents = () => {
     const [selectedType, setSelectedType] = useState();
 
     const { data, loading } = useFetch(
-        `http://localhost:5000/api/events/allevents?${selectedType && "postType"}=${selectedType && selectedType}&${selectedCategory && "category"}=${selectedCategory && selectedCategory}&limit=${limit}&sort=createdAt&asc=-1`
+        `https://global-life-api.onrender.com/api/events/allevents?${selectedType && "postType"}=${selectedType && selectedType}&${selectedCategory && "category"}=${selectedCategory && selectedCategory}&limit=${limit}&sort=createdAt&asc=-1`
     );
 
     const handleLoadMore = () => {
