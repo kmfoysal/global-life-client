@@ -1,21 +1,39 @@
-import React, { useState } from 'react';
-import { Spinner } from 'react-bootstrap';
-import useFetch from '../../hooks/useFetch';
-import CommonFilterHeader from '../commonFilterHeader/CommonFilterHeader';
-import CommonSideBar from '../commonSideBar/CommonSideBar';
-import CommonSubBanner from '../commonSubBanner/CommonSubBanner';
-import HappingNext from '../happingNext/HappingNext';
+import React, { useState } from "react";
+import { Spinner } from "react-bootstrap";
+import useFetch from "../../hooks/useFetch";
+import CommonFilterHeader from "../commonFilterHeader/CommonFilterHeader";
+import CommonSideBar from "../commonSideBar/CommonSideBar";
+import CommonSubBanner from "../commonSubBanner/CommonSubBanner";
+import HappingNext from "../happingNext/HappingNext";
 
 const AllEvents = () => {
-
     const [limit, setLimit] = useState(4);
 
-    const { data, loading } = useFetch(`http://localhost:5000/api/events/allevents?limit=${limit}&sort=createdAt&asc=-1`);
+    const [selectedCategory, setSelectedCategory] = useState();
+
+    const [selectedType, setSelectedType] = useState();
+
+    const { data, loading } = useFetch(
+        `http://localhost:5000/api/events/allevents?${selectedType && "postType"}=${selectedType && selectedType}&${selectedCategory && "category"}=${selectedCategory && selectedCategory}&limit=${limit}&sort=createdAt&asc=-1`
+    );
 
     const handleLoadMore = () => {
         setLimit((pre) => pre + 4);
     };
 
+
+    const filterByType = (e) => {
+        setSelectedType(e.target.value);
+    };
+
+    const filterByCategory = (e) => {
+        setSelectedCategory(e.target.value);
+    };
+
+    const handleReset = () => {
+        setSelectedType('')
+        setSelectedCategory('')
+    }
 
     return (
         <div>
@@ -27,7 +45,7 @@ const AllEvents = () => {
                             <CommonSideBar />
                         </div>
                         <div className="col-xl-9">
-                            <CommonFilterHeader />
+                            <CommonFilterHeader filterByType={filterByType} filterByCategory={filterByCategory} handleReset={handleReset} />
                             <div className="events-post-area">
                                 <div className="happeningNextWrapper mt-4">
                                     <div className="row">
