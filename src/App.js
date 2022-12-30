@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
 import './App.css';
 import AllEvents from './components/allEvents/AllEvents';
 import Footer from "./components/Footer/Footer";
@@ -17,6 +18,7 @@ import PublicRoute from './utils/PublicRoute';
 function App() {
   return (
       <BrowserRouter basename="/">
+          <ToastContainer theme="colored" position="top-right"></ToastContainer>
           <Header />
           <Routes>
               <Route path="/" element={<HomePage />} />

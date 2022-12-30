@@ -12,23 +12,23 @@ import "./eventDetails.scss";
 const EventDetails = () => {
     const { eventId } = useParams();
 
-    const { data, loading } = useFetch(`https://global-life-api.onrender.com/api/events/allevents?limit=4&sort=createdAt&asc=-1`);
+    const { data, loading } = useFetch(`https://global-life-api.onrender.com/api/events/allevents/${eventId}`);
 
-    const singleDetails = data?.events?.find((event) => event?._id === eventId);
+    // const singleDetails = data?.events?.find((event) => event?._id === eventId);
 
     return (
         <div>
-            <EventDetailsHeroArea singleDetails={singleDetails} />
+            <EventDetailsHeroArea singleDetails={data} />
 
             <div className="blog-details-main bg-gray3 py-4">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 ff-inter">
-                            <EventDetailsContent singleDetails={singleDetails} />
+                            <EventDetailsContent singleDetails={data} />
                             <EventReview />
                         </div>
                         <div className="col-lg-3 offset-1">
-                            <EventSideBar singleDetails={singleDetails} />
+                            <EventSideBar singleDetails={data} />
                         </div>
                     </div>
                 </div>

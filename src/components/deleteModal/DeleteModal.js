@@ -1,37 +1,44 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Modal, Spinner } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
+import useStepFormContext from '../../hooks/useStepFormContext';
 import './deleteModal.scss';
 
 const DeleteModal = ({ currentData }) => {
+
+    const { loading, setLoading, error, setError } = useStepFormContext();
+
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
 
-    const {user} = useAuth()
 
-     const handleDelete = async () => {
-         try {
-             await axios.delete(`https://global-life-api.onrender.com/api/events/allevents/${currentData?._id}`, {
-                 data: { username: user.username },
-             });
-            
-             window.location.reload();
+    const { user } = useAuth();
 
-         } catch (err) {
+    const handleDelete = async () => {
+         setLoading(true);
+        try {
+            await axios.delete(`https://global-life-api.onrender.com/api/events/allevents/${currentData?._id}`, {
+                data: { username: user.username },
+            });
+
+            toast.success("Successfully Deleted");
+            //  window.location.reload();
+            handleClose();
+        } catch (err) {
+            setError(err);
+            toast.error("There is something wrong");
             console.log(err);
-         }
-     };
+        }
+        setLoading(false);
+    };
+
 
     return (
         <div>
-            {/* <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button> */}
-
             <button className="card-footer-btn" onClick={handleShow}>
                 <span>
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,17 +61,31 @@ const DeleteModal = ({ currentData }) => {
                     </svg>
                 </button>
 
-                <h3 className="fs-2 text-center text-dark1">Are you sure you want to remove this experience?</h3>
-                <p className="fs-14 text-center ff-inter mt-4 mb-5">You won’t be able to find or edit your experience page, and any future unbooked instances will be removed from search results.</p>
+                {loading && (
+                    <div className="d-flex justify-content-center align-items-center w-100">
+                        <Spinner className="d-flex justify-content-center align-items-center" animation="grow" variant="warning" />
+                    </div>
+                )}
 
-                <Modal.Footer className='pb-0 m-0'>
-                    <button className="footer-btn" onClick={handleClose}>
-                        Cancel
-                    </button>
-                    <button className="footer-btn ms-3" onClick={handleDelete}>
-                        Confirm
-                    </button>
-                </Modal.Footer>
+                {!loading && !error && (
+                    <>
+                        <h3 className="fs-2 text-center text-dark1">Are you sure you want to remove this experience?</h3>
+                        <p className="fs-14 text-center ff-inter mt-4 mb-5">
+                            You won’t be able to find or edit your experience page, and any future unbooked instances will be removed from search results.
+                        </p>
+
+                        <Modal.Footer className="pb-0 m-0">
+                            <button className="footer-btn" onClick={handleClose}>
+                                Cancel
+                            </button>
+                            <button className="footer-btn ms-3" onClick={handleDelete}>
+                                Confirm
+                            </button>
+                        </Modal.Footer>
+                    </>
+                )}
+
+                {!loading && error && <p className='fs-5 ff-inter text-danger mb-0'>Error Occured !!! Please try again later.</p>}
             </Modal>
         </div>
     );

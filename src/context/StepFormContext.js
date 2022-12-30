@@ -6,6 +6,8 @@ export const StepFormProvider = ({ children }) => {
   
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState(false);
+
   const [updateMode, setUpdateMode] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -49,20 +51,22 @@ export const StepFormProvider = ({ children }) => {
   const canSubmit = [...Object.values(requiredInputs)].every(Boolean);
 
   return (
-    <StepFormContext.Provider
-      value={{
-        formData,
-        setFormData,
-        handleChange,
-        canSubmit,
-        loading,
-        setLoading,
-        updateMode,
-        setUpdateMode,
-      }}
-    >
-      {children}
-    </StepFormContext.Provider>
+      <StepFormContext.Provider
+          value={{
+              formData,
+              setFormData,
+              handleChange,
+              canSubmit,
+              loading,
+              setLoading,
+              updateMode,
+              setUpdateMode,
+              error,
+              setError,
+          }}
+      >
+          {children}
+      </StepFormContext.Provider>
   );
 };
 

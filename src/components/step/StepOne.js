@@ -9,6 +9,8 @@ const StepOne = ({ newFormData, handleUpdateChange }) => {
 
     const { formData, handleChange, updateMode } = useStepFormContext();
 
+    console.log(newFormData);
+
 
     return (
         <div className="step-one">

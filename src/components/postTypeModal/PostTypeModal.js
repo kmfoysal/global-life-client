@@ -52,7 +52,7 @@ const PostTypeModal = () => {
                         <div className="type bg-lemon-yellow">
                             <img src={CreateEventIcon} alt="img" />
                             {/* <button className="border-0 bg-transparent ff-inter fw-semibold mt-3">Create an event</button> */}
-                            <StepFormModal setSWhowPostTypeModal={setSWhowPostTypeModal} showCreateBtn={showCreateBtn} />
+                            <StepFormModal handleModalClose={handleModalClose} setSWhowPostTypeModal={setSWhowPostTypeModal} showCreateBtn={showCreateBtn} />
                         </div>
                     </div>
                     <div className="col-lg-6">

@@ -5,6 +5,7 @@ import App from './App';
 import { AuthContextProvider } from "./context/AuthContext";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

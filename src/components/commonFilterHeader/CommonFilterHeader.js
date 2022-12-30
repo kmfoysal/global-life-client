@@ -7,6 +7,16 @@ const CommonFilterHeader = ({ filterByType, filterByCategory, handleReset }) => 
     
     const { data } = useFetch(`https://global-life-api.onrender.com/api/events/allevents`);
 
+    const categoryList = [];
+    const postTypeList = [];
+
+    data?.events?.map((i) => categoryList.push(i?.category));
+    data?.events?.map((i) => postTypeList.push(i?.postType));
+
+    let uniqueCategoryList = [...new Set(categoryList)];
+    let uniquePostTypeList = [...new Set(postTypeList)];
+
+
     return (
         <div className="events-area-header">
             <div className="d-flex align-items-center justify-content-between flex-wrap pb-2">
@@ -21,9 +31,9 @@ const CommonFilterHeader = ({ filterByType, filterByCategory, handleReset }) => 
                     <div className="header">
                         <select className="form-select" onChange={filterByType}>
                             <option value="">All</option>
-                            {data?.events?.map((i) => (
-                                <option key={i.postType} value={i.postType}>
-                                    {i.postType}
+                            {uniquePostTypeList?.map((i, index) => (
+                                <option key={index} value={i}>
+                                    {i}
                                 </option>
                             ))}
                         </select>
@@ -31,9 +41,9 @@ const CommonFilterHeader = ({ filterByType, filterByCategory, handleReset }) => 
                     <div className="header">
                         <select className="form-select" onChange={filterByCategory}>
                             <option value="">Any Category</option>
-                            {data?.events?.map((i) => (
-                                <option key={i.category} value={i.category}>
-                                    {i.category}
+                            {uniqueCategoryList?.map((i, index) => (
+                                <option key={index} value={i}>
+                                    {i}
                                 </option>
                             ))}
                         </select>
