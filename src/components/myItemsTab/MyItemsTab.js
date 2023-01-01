@@ -14,15 +14,19 @@ const MyItemsTab = () => {
 
     const [selectedType, setSelectedType] = useState();
 
-    const { user } = useAuth();
+  const { user } = useAuth();
+  
 
     const { data, loading, error } = useFetch(
-      `https://global-life-api.onrender.com/api/events/myevents/${user?.username}?${
-        selectedType && "postType"
-      }=${selectedType && selectedType}&${selectedCategory && "category"}=${
+      `https://global-life-api.onrender.com/api/events/myevents/${
+        user?.username
+      }?${selectedType && "postType"}=${selectedType && selectedType}&${
+        selectedCategory && "category"
+      }=${
         selectedCategory && selectedCategory
       }&limit=${limit}&sort=createdAt&asc=-1`
-    );
+  );
+  
 
     const [loadedData, setLoadedData] = useState();
 

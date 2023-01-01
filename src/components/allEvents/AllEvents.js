@@ -7,7 +7,7 @@ import CommonSubBanner from "../commonSubBanner/CommonSubBanner";
 import HappingNext from "../happingNext/HappingNext";
 
 const AllEvents = () => {
-    const [limit, setLimit] = useState(4);
+    const [limit, setLimit] = useState(12);
 
     const [selectedCategory, setSelectedCategory] = useState();
 

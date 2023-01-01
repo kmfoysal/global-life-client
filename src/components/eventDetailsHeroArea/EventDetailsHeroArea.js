@@ -18,7 +18,7 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
 
   const { user } = useAuth();
 
-  const PF = "https://global-life-api.onrender.com/images/";
+  // const PF = "https://global-life-api.onrender.com/images/";
 
   useEffect(() => {
     setIsFollowed(singleDetails?.followers?.includes(user?._id));
@@ -141,21 +141,21 @@ const EventDetailsHeroArea = ({ singleDetails }) => {
           <div className="blog-details-wrapper mt-5 d-flex align-items-center justify-content-center gap-3">
             <div className="blog-details-img">
               <img
-                src={PF + singleDetails?.photos}
+                src={singleDetails?.photos}
                 className="img-fluid"
                 alt="blog-details"
               />
             </div>
             <div className="blog-details-img">
               <img
-                src={PF + singleDetails?.photos}
+                src={singleDetails?.photos}
                 className="img-fluid"
                 alt="blog-details"
               />
             </div>
             <div className="blog-details-img">
               <img
-                src={PF + singleDetails?.photos}
+                src={singleDetails?.photos}
                 className="img-fluid"
                 alt="blog-details"
               />

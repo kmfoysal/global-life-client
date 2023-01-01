@@ -6,7 +6,7 @@ import "./happingNext.scss";
 
 const HappingNext = ({ event }) => {
 
-    const PF = "https://global-life-api.onrender.com/images/";
+    // const PF = "https://global-life-api.onrender.com/images/";
 
     const {_id, title, streetAddress, photos, cost, startDate, startTime, postType, followers } = event;
 
@@ -48,9 +48,9 @@ const allEvents = (pathname === '/allevents')
 
 
     return (
-        <div className={`${allEvents ? "col-sm-6 col-md-4" : "col-xl-3 col-lg-4 col-md-6"}`}>
+        <div className={`${allEvents ? "col-sm-6 col-md-4" : "col-xl-3 col-lg-4 col-md-6"} my-4`}>
             <Link to={`/eventdetails/${_id}`} className="card border-0 text-decoration-none" onClick={countHandler}>
-                <img src={PF + photos} className="card-img-top img-fluid" alt="event-img" />
+                <img src={photos} className="card-img-top img-fluid" alt="event-img" />
                 <p className={`event-category category-position ${postType === "Experience" ? "bg-sky-blue" : "bg-lemon-yellow"}`}>{postType}</p>
                 <div className="card-body">
                     <p className="ff-inter fs-13 text-clr-dark-2 fw-medium mt-4 mb-2">
