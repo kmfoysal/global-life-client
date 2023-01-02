@@ -82,7 +82,7 @@ const StepFormModal = ({ handleModalClose, showCreateBtn, currentData }) => {
     formData.cost !== "";
   const canStep6 = formData.photos !== "";
 
-  const canCreate = formData.tags !== '';
+  const canCreate = formData.tags !== [];
 
   const disableNext =
     (stepNumber === 1 && !canStep2) ||

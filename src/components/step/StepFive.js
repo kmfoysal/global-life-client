@@ -32,7 +32,7 @@ const StepFive = ({
               placeholder="Upload Image"
               onChange={updateMode ? handleUpdateChange : handleChange}
               formEncType="multipart/form-data"
-              multiple
+              required
             />
           </FloatingLabel>
         )}

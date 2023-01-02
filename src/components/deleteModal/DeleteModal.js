@@ -40,7 +40,7 @@ const DeleteModal = ({ currentData }) => {
             setTimeout(() => {
               handleClose();
               window.location.reload();
-            }, "3000");
+            }, "2000");
 
         } catch (err) {
             setError(err);
