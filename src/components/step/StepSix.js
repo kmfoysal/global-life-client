@@ -10,23 +10,6 @@ const StepSix = ({ newFormData, handleUpdateChange }) => {
 
   const [tags, setTags] = useState([]);
 
-  //  function handleKeyDown(e) {
-  //      // If user did not press enter key, return
-  //      if (e.key !== "Enter") return;
-  //      // Get the value of the input
-  //      const value = e.target.value;
-  //      // If the value is empty, return
-  //      if (!value.trim()) return;
-  //      // Add the value to the tags array
-  //      setTags([...tags, value]);
-  //      // Clear the input
-  //      e.target.value = "";
-  //  }
-
-    // function removeTag(index) {
-    //     setTags(tags.filter((el, i) => i !== index));
-    // }
-
     const addTag = (e) => {
         // If user did not press enter key, return
         if (e.key !== "Enter") return;
@@ -42,11 +25,11 @@ const StepSix = ({ newFormData, handleUpdateChange }) => {
         e.target.value = "";
     }
 
-    const removeTag = (index) => {
-       setTags(tags.filter((el, i) => i !== index))
-    }
+    // const removeTag = (index) => {
+    //    setTags(formData?.tags?.filter((el, i) => i !== index))
+    // }
 
-    console.log(formData?.tags);
+    // console.log(formData?.tags);
 
   return (
       <div className="step-six">
@@ -76,24 +59,20 @@ const StepSix = ({ newFormData, handleUpdateChange }) => {
           <div className="tags-input-container">
               {formData?.tags?.map((tag, index) => (
                   <div className="tag-item" key={index}>
-                      <span className="text">{tag}</span>
-                      <span
+                      <span className="text ff-inter">{tag}</span>
+                      {/* <span
                           className="close"
                           onClick={() => {
                               removeTag(index);
                           }}
                       >
                           &times;
-                      </span>
+                      </span> */}
                   </div>
               ))}
 
-              {/* <Row className="g-4">
-                  <FloatingLabel controlId="addTag" label="Add Tag">
-                      <Form.Control type="text" placeholder="Add Tag" name="tags" onKeyDown={addTag} />
-                  </FloatingLabel>
-              </Row> */}
-              <input onKeyDown={addTag} type="text" className="tags-input" placeholder="Type somthing" required />
+              <input onKeyDown={addTag} type="text" className="tags-input" placeholder="Type your tag" required />
+              
           </div>
       </div>
   );

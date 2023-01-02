@@ -10,7 +10,7 @@ import "./eventSideBar.scss";
 
 const EventSideBar = ({ singleDetails }) => {
 
-    const formatedDate = moment(singleDetails?.startDate).add(0, "days").calendar();
+    const formatedDate = moment(singleDetails?.startDate).fromNow();
     
   return (
       <div>
