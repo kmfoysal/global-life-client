@@ -38,7 +38,7 @@ const EventDetails = () => {
             <div className="row">
               <div className="col-lg-8 ff-inter">
                 <EventDetailsContent singleDetails={data} />
-                <EventReview />
+                <EventReview singleDetails={data} />
               </div>
               <div className="col-lg-3 offset-1">
                 <EventSideBar singleDetails={data} />
