@@ -1,15 +1,65 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
 
 const AddReviewModal = ({ singleDetails }) => {
+
   const { user } = useAuth();
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [reviewDesc, setReviewDesc] = useState('');
+  const [reviewTitle, setReviewTitle] = useState('')
+  const [checked, setChecked] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const review = {
+      username: user?.username,
+      postId: singleDetails?._id,
+      reviewDesc: reviewDesc,
+      reviewTitle: reviewTitle,
+      aggrement: checked,
+      replyReview: [],
+    };
+
+    // setLoading(true);
+
+    try {
+      await axios.post(
+        "https://global-life-api.onrender.com/api/reviews/addReview",
+        review
+      );
+
+      setReviewDesc('');
+      setReviewTitle('')
+
+      toast.success("Successfully Submitted");
+      handleClose();
+
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, "2000");
+    } catch (err) {
+      // setError(err);
+
+      toast.error("There is something wrong");
+
+      console.log(err);
+    }
+
+    // setLoading(false);
+    // handleModalClose();
+  };
+
+  console.log(new Date());
 
   return (
     <div>
@@ -63,26 +113,54 @@ const AddReviewModal = ({ singleDetails }) => {
           )} */}
         {/* {!loading && !error && ( */}
         <>
-          <h3 className="fs-2 text-center text-dark1">{singleDetails?._id}</h3>
-          <p className="fs-14 text-center ff-inter mt-4 mb-5">
-            You won’t be able to find or edit your experience page, and any
-            future unbooked instances will be removed from search results.
-          </p>
+          <h3 className="fs-30 text-dark1">Write a review</h3>
 
-          <Modal.Footer className="pb-0 m-0">
-            <button className="footer-btn" onClick={handleClose}>
-              Cancel
-            </button>
+          <form onSubmit={handleSubmit}>
+            <h6 className="ff-inter mt-4 mb-3">
+              Tell us about your experience
+            </h6>
+
+            <textarea
+              class="p-4 w-100"
+              placeholder="This is where you write your review. Explain what happened, and leave out offensive words. Keep your feedback honest, helpful, and constructive."
+              id="floatingTextarea"
+              rows={4}
+              value={reviewDesc}
+              onChange={(e) => setReviewDesc(e.target.value)}
+            ></textarea>
+
+            <h6 className="ff-inter my-3">Give your review a title</h6>
+            <input
+              type="text"
+              placeholder="Write the title of your review here"
+              value={reviewTitle}
+              onChange={(e) => setReviewTitle(e.target.value)}
+            />
+
+            <div class="form-check my-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                checked={checked}
+                id="flexCheckDefault"
+                onChange={(e) => setChecked(e.target.checked)}
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                I confirm this review is about my own genuine experience.
+              </label>
+            </div>
+
             <button
-              className="footer-btn ms-3"
+              type="submit"
+              className="footer-btn w-100"
               //   onClick={handleDelete}
               //   disabled={!deleteData?._id}
             >
-              Confirm
+              Submit
             </button>
-          </Modal.Footer>
+          </form>
         </>
-        // )}
+        {/* // )} */}
         {/* {!loading && error && (
             <p className="fs-5 ff-inter text-danger mb-0">
               Error Occured !!! Please try again later.
