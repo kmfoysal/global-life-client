@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useAuth from '../../hooks/useAuth';
 
-const AddReviewModal = ({ singleDetails }) => {
-
+const AddReviewModal = ({ singleDetails, reFetch }) => {
+  
   const { user } = useAuth();
 
   const [show, setShow] = useState(false);
@@ -14,19 +14,37 @@ const AddReviewModal = ({ singleDetails }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [reviewDesc, setReviewDesc] = useState('');
-  const [reviewTitle, setReviewTitle] = useState('')
+  const [reviewDesc, setReviewDesc] = useState("");
+  const [reviewTitle, setReviewTitle] = useState("");
   const [checked, setChecked] = useState(false);
+  const [ratingValue, setRatingValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
+
+  const stars = Array(5).fill(0);
+
+  const handleRate = (value) => {
+    setRatingValue(value);
+  };
+
+  const handleMouseOver = (newHoverValue) => {
+    setHoverValue(newHoverValue);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverValue(undefined);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const review = {
       username: user?.username,
+      name: user?.name,
       postId: singleDetails?._id,
       reviewDesc: reviewDesc,
       reviewTitle: reviewTitle,
       aggrement: checked,
+      rating: ratingValue,
       replyReview: [],
     };
 
@@ -38,11 +56,13 @@ const AddReviewModal = ({ singleDetails }) => {
         review
       );
 
-      setReviewDesc('');
-      setReviewTitle('')
+      setReviewDesc("");
+      setReviewTitle("");
 
       toast.success("Successfully Submitted");
+      reFetch()
       handleClose();
+
 
       // setTimeout(() => {
       //   window.location.reload();
@@ -59,7 +79,7 @@ const AddReviewModal = ({ singleDetails }) => {
     // handleModalClose();
   };
 
-  console.log(new Date());
+  console.log(typeof ratingValue);
 
   return (
     <div>
@@ -119,6 +139,36 @@ const AddReviewModal = ({ singleDetails }) => {
             <h6 className="ff-inter mt-4 mb-3">
               Tell us about your experience
             </h6>
+
+            <div className="d-flex justify-content-start gap-2">
+              {stars.map((star, index) => (
+                <svg
+                  key={index}
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => handleRate(index + 1)}
+                  onMouseOver={() => handleMouseOver(index + 1)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <rect
+                    width="48"
+                    height="48"
+                    fill={`${
+                      (hoverValue || ratingValue) > index
+                        ? "#17BD8D"
+                        : "#E3E8EB"
+                    }`}
+                  />
+                  <path
+                    d="M24 8L27.5922 19.0557H39.2169L29.8123 25.8885L33.4046 36.9443L24 30.1115L14.5954 36.9443L18.1877 25.8885L8.7831 19.0557H20.4078L24 8Z"
+                    fill="white"
+                  />
+                </svg>
+              ))}
+            </div>
 
             <textarea
               class="p-4 w-100"

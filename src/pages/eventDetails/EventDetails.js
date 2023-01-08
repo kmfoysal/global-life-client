@@ -27,7 +27,7 @@ const EventDetails = () => {
       (event) => event?._id !== eventId
     );
 
-    console.log(realatedEvents);
+    // console.log(realatedEvents);
 
     return (
       <div>
