@@ -29,7 +29,7 @@ const ReplyReviewModal = ({ review, reFetch }) => {
 
    try {
      await axios.put(
-       `http://localhost:5000/api/reviews/${review?.username}`,
+       `http://localhost:5000/api/reviews/${review?._id}/reply`,
        replyReview
      );
 
