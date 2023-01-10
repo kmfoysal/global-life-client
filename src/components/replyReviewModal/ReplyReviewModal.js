@@ -21,8 +21,11 @@ const ReplyReviewModal = ({ review, reFetch }) => {
       e.preventDefault();
 
       const replyReview = {
- 
+
+        reviewId: review?._id,
+        replyerName: user?.name,
         replyDesc: replyDesc,
+        replyTime: new Date()
       };
 
     // setLoading(true);

@@ -34,6 +34,8 @@ const AddReviewModal = ({ singleDetails, reFetch }) => {
     setHoverValue(undefined);
   };
 
+  console.log(singleDetails);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,36 +52,33 @@ const AddReviewModal = ({ singleDetails, reFetch }) => {
 
     // setLoading(true);
 
-    try {
-      await axios.post(
-        "https://global-life-api.onrender.com/api/reviews/addReview",
-        review
-      );
+    if (singleDetails?.userId !== user?._id) {
+      try {
+          await axios.post("https://global-life-api.onrender.com/api/reviews/addReview", review);
 
-      setReviewDesc("");
-      setReviewTitle("");
+          setReviewDesc("");
+          setReviewTitle("");
 
-      toast.success("Successfully Submitted");
-      reFetch()
-      handleClose();
+          toast.success("Successfully Submitted");
+          reFetch();
+          handleClose();
 
+          // setTimeout(() => {
+          //   window.location.reload();
+          // }, "2000");
+      } catch (err) {
+          // setError(err);
 
-      // setTimeout(() => {
-      //   window.location.reload();
-      // }, "2000");
-    } catch (err) {
-      // setError(err);
-
-      toast.error("There is something wrong");
-
-      console.log(err);
+          toast.error("There is something wrong");
+      }
+    } else {
+      toast.error("You Can Not Review Your Post")
     }
+
 
     // setLoading(false);
     // handleModalClose();
   };
-
-  console.log(typeof ratingValue);
 
   return (
     <div>
