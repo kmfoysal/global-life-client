@@ -54,10 +54,10 @@ const AddReviewModal = ({ singleDetails, reFetch }) => {
 
     if (singleDetails?.userId !== user?._id) {
       try {
-          await axios.post("https://global-life-api.onrender.com/api/reviews/addReview", review);
+          await axios.post("/api/reviews/addReview", review);
 
           setReviewDesc("");
-          setReviewTitle("");
+          setReviewTitle("");https://global-life-api.onrender.com
 
           toast.success("Successfully Submitted");
           reFetch();

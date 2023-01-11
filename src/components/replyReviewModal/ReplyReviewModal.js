@@ -90,7 +90,6 @@ const ReplyReviewModal = ({ review, reFetch }) => {
 
           <form onSubmit={handleSubmit}>
             <h6 className="ff-inter mt-4 mb-3">Reply from Organizer</h6>
-            {review.username}
             <textarea
               class="p-4 w-100"
               placeholder="This is where you write your review. Explain what happened, and leave out offensive words. Keep your feedback honest, helpful, and constructive."
